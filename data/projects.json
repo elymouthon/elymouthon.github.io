@@ -1,0 +1,84 @@
+{
+  "projects": [
+    {
+      "id": "proj-1-1",
+      "year": 1,
+      "title": "Conception et implémentation d'une base de données",
+      "icon": "🗄️",
+      "description": "PYTHON / SQL",
+      "details": "Projet de base de données pour la coopérative de sel marin de l'île de Ré, visant à gérer les entrées, traitements et ventes de gros sel et de fleur de sel. Conception du modèle, implémentation SQL, requêtes optimisées et documentation. Compétences développées : bases de données, optimisation, travail en équipe.",
+      "technologies": ["Python", "SQL"],
+      "downloadUrl": ""
+    },
+    {
+      "id": "proj-1-2",
+      "year": 1,
+      "title": "Régression sur des données réelles",
+      "icon": "📊",
+      "description": "RSTUDIO / EXCEL",
+      "details": "Prédiction du prix de vente de biens immobiliers dans les Deux-Sèvres en 2023-2024 à partir de données issues de fichiers CSV. Analyse exploratoire, modélisation manuelle sans fonctions prédéfinies, optimisation du modèle et soumission des prédictions. Compétences développées : modélisation statistique, rigueur méthodologique, maîtrise du langage R.",
+      "technologies": ["RStudio", "Excel", "CSV"],
+      "downloadUrl": ""
+    },
+    {
+      "id": "proj-2-1",
+      "year": 2,
+      "title": "REPORTING D'UNE ANALYSE MULTIVARIÉE",
+      "icon": "📊",
+      "description": "Outil visuel de suivi-évaluation de la pauvreté",
+      "details": "Outil visuel et automatisé de suivi-évaluation de la pauvreté en France à l'aide de données de l'INSEE. Traitement et nettoyage des données, Réalisation d'une application web interactive pour le reporting d'analyses multivariées.",
+      "technologies": ["RShiny", "R", "INSEE Data"],
+      "downloadUrl": "assets/projects/rshiny/rshinyProject(Ely Mouthon & Louis Le Merlus).zip"
+    },
+    {
+      "id": "proj-2-2",
+      "year": 2,
+      "title": "ÉTUDE STRATÉGIQUE D'IMPLANTATION",
+      "icon": "🗺️",
+      "description": "Analyse spatiale Mcdonald's",
+      "details": "Étude des structures Mcdonald's en France afin d'aiguiller les futurs franchisés vers les zones présentant le meilleur potentiel. Traitement de données géographiques, Cartographie et analyse spatiale.",
+      "technologies": ["QGIS", "Géospatial", "Analyse Spatiale"],
+      "downloadUrl": "assets/projects/qgis/projetSIG_ElyMouthon_OctaveRomer.zip"
+    },
+    {
+      "id": "proj-2-3",
+      "year": 2,
+      "title": "ENSEIGNEMENT PROGRAMMATION WEB",
+      "icon": "👨‍🏫",
+      "description": "Formation NSI Lycée",
+      "details": "Enseignement de la programmation web (HTML, CSS, JS) pendant 1 mois pour une classe de Première NSI au Lycée Jean Macé de Niort. Conception de cours et accompagnement technique. Exemple d'un cours et d'un TD qu'on a animés. *Image d'illustration",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "downloadUrl": "assets/projects/cours/cours_td_nsi.rar"
+    },
+    {
+      "id": "proj-2-4",
+      "year": 2,
+      "title": "Visualisation avancée",
+      "icon": "🎨",
+      "description": "Dashboards avec Power BI",
+      "details": "Création de dashboards interactifs et rapports dynamiques avec Power BI pour la présentation aux stakeholders.",
+      "technologies": ["Power BI", "DAX", "SQL"],
+      "downloadUrl": "docs/bilan.pdf"
+    },
+    {
+      "id": "proj-2-5",
+      "year": 2,
+      "title": "Analyse Prédictive",
+      "icon": "🔮",
+      "description": "Forecasting et prévisions",
+      "details": "Analyse de séries temporelles et prévisions avec ARIMA et exponential smoothing.",
+      "technologies": ["Python", "Statsmodels", "Pandas"],
+      "downloadUrl": "docs/bilan.pdf"
+    },
+    {
+      "id": "proj-3-1",
+      "year": 3,
+      "title": "Projets de 3ème année",
+      "icon": "📅",
+      "description": "Indisponibles pour le moment",
+      "details": "Projets de la troisième année indisponibles pour le moment (actuellement en 2ème année).",
+      "technologies": [],
+      "downloadUrl": ""
+    }
+  ]
+}

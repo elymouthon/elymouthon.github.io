@@ -1,0 +1,30 @@
+# Environment
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+
+# OS files
+Thumbs.db
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+
+# Local env files
+.env
+.env.local
