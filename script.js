@@ -58,7 +58,7 @@ window.addEventListener('scroll', () => {
     const opacity1 = 0.5 + (scrollPercent * 0.2);
     const opacity2 = 0.6 + (scrollPercent * 0.2);
     
-    document.body.style.backgroundImage = `linear-gradient(rgba(10, 18, 10, ${opacity1}), rgba(10, 18, 10, ${opacity2})), url('assets/images/hero-bg.jpeg')`;
+    document.body.style.backgroundImage = `linear-gradient(rgba(10, 18, 10, ${opacity1}), rgba(10, 18, 10, ${opacity2})), url('assets/images/hero-bg.webp')`;
 });
 
 // ==================== PROJECTS FILTERING ====================
