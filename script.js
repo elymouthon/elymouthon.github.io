@@ -55,8 +55,8 @@ window.addEventListener('scroll', () => {
     const scrollPercent = Math.min(scrollY / 500, 1); // Progressive darkening over 500px
     
     // Opacité: de 0.5-0.6 au début à 0.7-0.8 au scroll
-    const opacity1 = 0.2 + (scrollPercent * 0.5);
-    const opacity2 = 0.3 + (scrollPercent * 0.5);
+    const opacity1 = 0.1 + (scrollPercent * 0.2);
+    const opacity2 = 0.3 + (scrollPercent * 0.2);
     
     document.body.style.backgroundImage = `linear-gradient(rgba(10, 18, 10, ${opacity1}), rgba(10, 18, 10, ${opacity2})), url('assets/images/hero-bg.webp')`;
 });
