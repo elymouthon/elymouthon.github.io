@@ -765,7 +765,7 @@ footer p {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .modal-icon {
@@ -788,11 +788,12 @@ footer p {
 .modal-image {
     width: 100%;
     height: auto;
-    max-height: 600px;
-    object-fit: cover;
+    max-height: 35vh; 
+    object-fit: contain; 
     border-radius: 8px;
-    margin: 1.5rem 0;
+    margin: 1rem 0; 
     border: 1px solid rgba(56, 228, 147, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .modal-additional-images {
@@ -806,7 +807,7 @@ footer p {
     flex: 1;
     width: 48%;
     height: auto;
-    max-height: 250px;
+    max-height: 20vh;
     object-fit: contain;
     border-radius: 8px;
     border: 1px solid rgba(56, 228, 147, 0.2);
@@ -814,13 +815,13 @@ footer p {
 
 #modalDetails {
     color: var(--color-text-muted);
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
 #modalTags {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .modal-buttons {
@@ -834,7 +835,6 @@ footer p {
     min-width: 200px;
     text-align: center;
 }
-
 /* ==================== ANIMATIONS ==================== */
 .fade-in {
     opacity: 0;
