@@ -3,279 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio d'Ely Mouthon, étudiant en Science des Données et stagiaire Data Analyst.">
-    <title>Ely Mouthon — Data analyst & storyteller</title>
+    <meta name="description" content="Portfolio d'Ely Mouthon — Data analyst, storyteller et explorateur de données.">
+    <title>Ely Mouthon — Data, avec intention.</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/images/logo.png">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="site-noise" aria-hidden="true"></div>
+
+    <nav class="site-nav">
+        <div class="nav-inner">
             <a class="logo" href="#home" aria-label="Retour à l'accueil"><span>EM</span><strong>ELY<span>.</span></strong></a>
+            <div class="nav-status"><i></i> Ouvert aux opportunités</div>
+            <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
             <ul class="nav-links">
-                <li><a href="#home">01 / Accueil</a></li>
-                <li><a href="#about">02 / Profil</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#skills">Bilan</a></li>
-                <li><a href="#contact" class="nav-contact">Parlons-en ↗</a></li>
+                <li><a href="#about">Profil <small>01</small></a></li>
+                <li><a href="#projects">Travaux <small>02</small></a></li>
+                <li><a href="#method">Méthode <small>03</small></a></li>
+                <li><a href="#contact" class="nav-contact">Parlons data <b>↗</b></a></li>
             </ul>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="hero-eyebrow"><span class="status-dot"></span> Disponible pour une nouvelle aventure data</div>
-        <div class="hero-content">
-            <p class="hero-kicker">Portfolio · 2026</p>
-            <h1>Je donne du <em>sens</em><br>à vos données.</h1>
-            <p>Étudiant en Science des Données et stagiaire Data Analyst, je transforme les chiffres complexes en décisions claires, utiles et mémorables.</p>
-            <div class="cta-buttons">
-                <a class="btn btn-primary" href="#projects">Explorer mes projets <span>↗</span></a>
-                <a class="btn btn-secondary" href="cv.pdf" download>Mon CV <span>↓</span></a>
-            </div>
-        </div>
-        <div class="hero-aside">
-            <span class="hero-index">01</span>
-            <span class="hero-line"></span>
-            <span class="hero-vertical">SCROLL TO EXPLORE</span>
-        </div>
-        <div class="hero-stamp" aria-hidden="true"><span>DATA</span><strong>+</strong><span>IMPACT</span></div>
-        <div class="scroll-indicator" onclick="smoothScroll('about')">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="section-heading"><span class="section-number">02</span><h2 class="section-title">Profil</h2><span class="heading-rule"></span></div>
-        <div class="about">
-            <div class="about-content">
-                <h3 style="margin-top: 0; color: #d2b664; font-size: 1.3rem;">Un ancrage breton au service de la donnée</h3>
-                <p class="about-text">
-                    Je m'appelle Ely Mouthon, j'ai 20 ans et je suis originaire de Lorient. Très attaché à mes racines et à la culture bretonne, j'évolue actuellement en deuxième année de BUT Science des Données à Niort. Ce cursus me permet de transformer mon intérêt pour l'analyse et la logique en une expertise technique concrète, tout en affirmant mon identité au sein du paysage académique régional.
-                </p>
-                <h3 style="margin-top: 1.5rem; color: #d2b664; font-size: 1.3rem;">Une immersion au cœur de l'analyse de données</h3>
-                <p class="about-text">
-                    Ma passion pour les nouvelles technologies liées à la data s'exprime aujourd'hui dans mon rôle de stagiaire Data Analyst à l'EPSM Sud Bretagne, au centre hospitalier Charcot. Cette expérience professionnelle me permet d'appliquer mes connaissances dans un univers exigeant, avec la volonté constante de rester à la pointe des innovations de mon secteur pour apporter des solutions pertinentes et modernes.
-                </p>
-                <div style="display: flex; gap: 2rem; align-items: flex-start;">
-                    <div style="flex: 1;">
-                        <h3 style="margin-top: 1.5rem; color: #d2b664; font-size: 1.3rem;">La culture de l'effort et du dépassement</h3>
-                        <p class="about-text">
-                            Au-delà du monde numérique, je cultive une soif constante de progression à travers la pratique intensive de la course à pied et du trail. Ce goût pour l'endurance et la performance se traduit par des objectifs ambitieux, comme le tour de l'île de Groix que je prépare actuellement. Cette détermination à parcourir de grandes distances reflète mon état d'esprit : une persévérance à toute épreuve, que ce soit sur les sentiers côtiers ou dans la gestion de projets complexes.
-                        </p>
-                        <a href="cv.pdf" class="btn btn-primary" download style="margin-top: 1.5rem;">Télécharger mon CV</a>
-                    </div>
-                    <div class="about-strava" style="display: flex; gap: 1rem; min-width: 180px;">
-                        <img src="assets/images/projects/strava/pr-10k.png" alt="10K Personal Record" class="strava-badge">
-                        <img src="assets/images/projects/strava/semi-marathon.png" alt="Semi-Marathon Personal Record" class="strava-badge">
-                    </div>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-grid" aria-hidden="true"></div>
+            <div class="hero-meta reveal"><span>Portfolio / 2026</span><span>02°56'N — 47°45'O</span></div>
+            <div class="hero-content">
+                <p class="eyebrow reveal">Data analyst · créateur de clarté</p>
+                <h1 class="reveal">Les données<br>ont une <em>voix.</em></h1>
+                <p class="hero-intro reveal">Je m'appelle Ely. Je transforme les signaux faibles, les tableaux bruts et les questions complexes en décisions qui font avancer.</p>
+                <div class="hero-actions reveal">
+                    <a class="button button-fill" href="#projects">Voir les travaux <span>↓</span></a>
+                    <a class="button button-line" href="cv.pdf" download>Lire mon CV <span>↗</span></a>
                 </div>
             </div>
-            <div class="about-metrics">
+            <div class="hero-orbit" aria-hidden="true"><span>ANALYSE</span><b>+</b><span>IMPACT</span></div>
+            <div class="hero-bottom"><span>Scroll pour explorer</span><span class="scroll-arrow">↓</span><span>01 / 04</span></div>
+        </section>
+
+        <section id="about" class="about section-shell">
+            <div class="section-label reveal"><span>01</span><i></i><span>Le profil</span></div>
+            <div class="about-layout">
+                <div class="about-statement reveal">
+                    <p class="overline">À propos</p>
+                    <h2>Rendre le<br><em>complexe</em><br>évident.</h2>
+                </div>
+                <div class="about-copy reveal">
+                    <p class="large-copy">Étudiant en deuxième année de BUT Science des Données, je navigue entre analyse statistique, visualisation et développement d'outils utiles.</p>
+                    <p>Originaire de Lorient et actuellement basé à Niort, j'aime les problèmes qui demandent à la fois de la méthode et de l'intuition. Mon expérience de stagiaire Data Analyst à l'EPSM Sud Bretagne m'a appris qu'une bonne donnée ne vaut que par la décision qu'elle permet de prendre.</p>
+                    <a class="text-link" href="cv.pdf" download>Parcourir mon parcours <span>↗</span></a>
+                </div>
+            </div>
+            <div class="metrics reveal">
                 <div><strong>20</strong><span>ans · Lorient</span></div>
-                <div><strong>BUT 2</strong><span>Science des Données</span></div>
-                <div><strong>∞</strong><span>curiosité & endurance</span></div>
+                <div><strong>02</strong><span>années de data</span></div>
+                <div><strong>∞</strong><span>curiosité active</span></div>
+                <div><strong>42,2</strong><span>km de persévérance</span></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="section-heading"><span class="section-number">03</span><h2 class="section-title">Sélection de projets</h2><span class="heading-rule"></span></div>
-        <p class="section-lead">Des données brutes aux interfaces qui racontent une histoire. Chaque projet est une occasion de rendre l'information plus lisible et plus actionnable.</p>
-        
-        <!-- Filters -->
-        <div class="project-filters">
-            <button class="filter-btn" data-year="1">1ère année</button>
-            <button class="filter-btn" data-year="2">2ème année</button>
-            <button class="filter-btn" data-year="3">3ème année</button>
-            <button class="filter-btn" data-year="4">Projets Professionnels</button>
-        </div>
-        
-        <div class="projects-grid">
-            <!-- 1ère année -->
-            <div class="project-notice" data-year="1" style="grid-column: 1/-1; padding: 0.75rem 1rem; background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; margin-bottom: 1rem;">
-                <p style="margin: 0; color: #856404; font-weight: 400; font-size: 0.9rem;">⚠️ Tous les projets de la première année ne sont pas disponibles et ne sont pas téléchargables. Seule une petite partie des projets réalisés est présentée ici.</p>
+        <section id="projects" class="projects section-shell">
+            <div class="section-label reveal"><span>02</span><i></i><span>Les travaux</span></div>
+            <div class="projects-head reveal">
+                <h2>Ce que les chiffres<br><em>racontent.</em></h2>
+                <p>Une sélection de projets où la donnée devient carte, interface, modèle ou outil d'aide à la décision.</p>
             </div>
-            
-            <div class="project-card" data-year="1" onclick="openProjectModal('Conception et implémentation d\'une base de données', '🗄️', 'PYTHON / SQL', 'Projet de base de données pour la coopérative de sel marin de l\'île de Ré, visant à gérer les entrées, traitements et ventes de gros sel et de fleur de sel. Conception du modèle, implémentation SQL, requêtes optimisées et documentation. Compétences développées : bases de données, optimisation, travail en équipe.', ['Python', 'SQL'], '', 'assets/images/projects/work1/item-1.jpg')">
-                <div class="project-icon">🗄️</div>
-                <h3>Conception et implémentation d\'une base de données</h3>
-                <p>PYTHON / SQL</p>
+            <div class="project-filters reveal" role="tablist" aria-label="Filtrer les projets">
+                <button class="filter-btn active" data-year="2">Sélection</button>
+                <button class="filter-btn" data-year="1">Année 01</button>
+                <button class="filter-btn" data-year="4">Professionnel</button>
+                <button class="filter-btn" data-year="3">À venir</button>
             </div>
-            
-            <div class="project-card" data-year="1" onclick="openProjectModal('Régression sur des données réelles', '📊', 'RSTUDIO / EXCEL', 'Prédiction du prix de vente de biens immobiliers dans les Deux-Sèvres en 2023-2024 à partir de données issues de fichiers CSV. Analyse exploratoire, modélisation manuelle sans fonctions prédéfinies, optimisation du modèle et soumission des prédictions. Compétences développées : modélisation statistique, rigueur méthodologique, maîtrise du langage R.', ['RStudio', 'Excel', 'CSV'], '', 'assets/images/projects/work1/item-2.jpg')">
-                <div class="project-icon">📊</div>
-                <h3>Régression sur des données réelles</h3>
-                <p>RSTUDIO / EXCEL</p>
+            <div class="projects-grid">
+                <article class="project-card project-feature reveal" data-year="2" onclick="openProjectModal('REPORTING D’UNE ANALYSE MULTIVARIÉE', '01', 'RShiny · INSEE DATA', 'Outil visuel et automatisé de suivi-évaluation de la pauvreté en France à l’aide de données de l’INSEE. Traitement, nettoyage et mise en récit des données dans une application web interactive.', ['RShiny', 'R', 'INSEE Data'], 'assets/projects/rshiny/rshinyProject(Ely%20Mouthon%20&%20Louis%20Le%20Merlus).zip', 'assets/projects/rshiny/rshiny.jpg', 'https://elymouthon.shinyapps.io/observatoire-pauvrete/')">
+                    <div class="card-index">01 / 08</div><div class="project-symbol">◒</div><div class="card-arrow">↗</div>
+                    <div class="project-card-content"><p class="card-type">Application interactive</p><h3>Observer<br>la pauvreté.</h3><p class="card-footer">RShiny <span>—</span> Data storytelling</p></div>
+                </article>
+                <article class="project-card project-map reveal" data-year="2" onclick="openProjectModal('ÉTUDE STRATÉGIQUE D’IMPLANTATION', '02', 'QGIS · ANALYSE SPATIALE', 'Étude des structures McDonald’s en France afin d’aiguiller les futurs franchisés vers les zones présentant le meilleur potentiel. Traitement de données géographiques, cartographie et analyse spatiale.', ['QGIS', 'Géospatial', 'Analyse Spatiale'], 'assets/projects/qgis/projetSIG_ElyMouthon_OctaveRomer.zip', 'assets/projects/qgis/qgis.jpg')">
+                    <div class="card-index">02 / 08</div><div class="project-symbol">⌖</div><div class="card-arrow">↗</div>
+                    <div class="project-card-content"><p class="card-type">Intelligence territoriale</p><h3>Lire le<br>territoire.</h3><p class="card-footer">QGIS <span>—</span> Géospatial</p></div>
+                </article>
+                <article class="project-card project-light reveal" data-year="2" onclick="openProjectModal('OUTIL COMPARAISON DE VILLES', '03', 'STREAMLIT · PYTHON', 'Interface web multipage pour comparer deux villes françaises de plus de 20 000 habitants à partir d’indicateurs d’emploi, de logement et de météo.', ['Streamlit', 'Python', 'APIs', 'Data Analysis'], 'assets/projects/js/SAE_PW_Octave_Ely_Camille.zip', 'assets/projects/js/js.jpg')">
+                    <div class="card-index">03 / 08</div><div class="project-symbol">↔</div><div class="card-arrow">↗</div>
+                    <div class="project-card-content"><p class="card-type">Outil décisionnel</p><h3>Deux villes.<br>Un choix.</h3><p class="card-footer">Streamlit <span>—</span> Python</p></div>
+                </article>
+                <article class="project-card project-dark reveal" data-year="2" onclick="openProjectModal('PRÉVISION DES COURS DU CUIVRE', '04', 'SÉRIES TEMPORELLES', 'Étude et modélisation de la dynamique complexe des prix du cuivre afin de fournir des projections pour les investisseurs.', ['Excel', 'Séries temporelles', 'Modèle'], 'assets/projects/serie_temp.pdf', 'assets/projects/cuivre.PNG')">
+                    <div class="card-index">04 / 08</div><div class="project-symbol">⌁</div><div class="card-arrow">↗</div>
+                    <div class="project-card-content"><p class="card-type">Projection</p><h3>Anticiper<br>le mouvement.</h3><p class="card-footer">Forecasting <span>—</span> Modélisation</p></div>
+                </article>
+                <article class="project-card project-wide reveal" data-year="2" onclick="openProjectModal('INTÉGRATION DE DONNÉES DANS UN DATA WAREHOUSE', '05', 'ETL · BI · ARCHITECTURE', 'Conception d’un entrepôt de données complet à partir de sources disparates et impures pour produire des analyses décisionnelles stratégiques.', ['ETL', 'Python', 'Power BI', 'Talend', 'Oracle SQL'], '', 'assets/projects/datawarehouse.png')">
+                    <div class="card-index">05 / 08</div><div class="project-symbol">▦</div><div class="card-arrow">↗</div>
+                    <div class="project-card-content"><p class="card-type">Architecture data</p><h3>Organiser<br>le chaos.</h3><p class="card-footer">Data Warehouse <span>—</span> BI</p></div>
+                </article>
+                <article class="project-card project-pro reveal" data-year="4" onclick="openProjectModal('OUTIL GÉNÉRATION RAPPORT HOSPITALIER', '06', 'STAGE · EPSM SUD BRETAGNE', 'Création d’une interface en RShiny permettant de produire un rapport Word de l’activité d’unités du centre hospitalier. Requêtes SQL via Oracle et mise en forme avec RMarkdown.', ['SQL', 'R', 'RShiny', 'RMarkdown'], '', 'assets/projects/Capture.PNG')">
+                    <div class="card-index">06 / 08</div><div class="project-symbol">✦</div><div class="card-arrow">↗</div>
+                    <div class="project-card-content"><p class="card-type">Expérience professionnelle</p><h3>La donnée<br>au service du soin.</h3><p class="card-footer">RShiny <span>—</span> Reporting</p></div>
+                </article>
+                <div class="project-notice" data-year="1">Les projets de première année sont disponibles sur demande.</div>
+                <div class="project-notice" data-year="3">Les projets de troisième année arrivent bientôt.</div>
             </div>
+        </section>
 
-            <!-- 2ème année -->
-            <div class="project-card" data-year="2" onclick="openProjectModal('REPORTING D\'UNE ANALYSE MULTIVARIÉE', '📊', 'Outil visuel de suivi-évaluation de la pauvreté', 'Outil visuel et automatisé de suivi-évaluation de la pauvreté en France à l\'aide de données de l\'INSEE. Traitement et nettoyage des données, Réalisation d\'une application web interactive pour le reporting d\'analyses multivariées.', ['RShiny', 'R', 'INSEE Data'], 'assets/projects/rshiny/rshinyProject(Ely%20Mouthon%20&%20Louis%20Le%20Merlus).zip', 'assets/projects/rshiny/rshiny.jpg', [], 'https://elymouthon.shinyapps.io/observatoire-pauvrete/')">
-                <div class="project-icon">📊</div>
-                <h3>REPORTING D'UNE ANALYSE MULTIVARIÉE</h3>
-                <p>RShiny - Application web interactive</p>
+        <section id="method" class="method section-shell">
+            <div class="section-label reveal"><span>03</span><i></i><span>La méthode</span></div>
+            <div class="method-layout">
+                <div class="method-intro reveal"><h2>Pas de magie.<br>Une <em>méthode.</em></h2><p>Chaque projet commence par une bonne question. Le reste est une histoire de précision, de curiosité et de transmission.</p></div>
+                <div class="method-steps">
+                    <div class="method-step reveal"><span>01</span><div><h3>Écouter le signal</h3><p>Comprendre le terrain, les enjeux et ce qui se cache derrière la demande.</p></div></div>
+                    <div class="method-step reveal"><span>02</span><div><h3>Structurer le réel</h3><p>Nettoyer, croiser et modéliser jusqu'à faire émerger une lecture fiable.</p></div></div>
+                    <div class="method-step reveal"><span>03</span><div><h3>Rendre visible</h3><p>Construire l'outil ou la visualisation qui rend l'action évidente.</p></div></div>
+                </div>
             </div>
-            
-            <div class="project-card" data-year="2" onclick="openProjectModal('ÉTUDE STRATÉGIQUE D\'IMPLANTATION', '🗺️', 'Analyse spatiale Mcdonald\'s', 'Étude des structures Mcdonald\'s en France afin d\'aiguiller les futurs franchisés vers les zones présentant le meilleur potentiel. Traitement de données géographiques, Cartographie et analyse spatiale.', ['QGIS', 'Géospatial', 'Analyse Spatiale'], 'assets/projects/qgis/projetSIG_ElyMouthon_OctaveRomer.zip', 'assets/projects/qgis/qgis.jpg')">
-                <div class="project-icon">🗺️</div>
-                <h3>ÉTUDE STRATÉGIQUE D'IMPLANTATION</h3>
-                <p>QGIS - Analyse géospatiale</p>
-            </div>
-            
-            <div class="project-card" data-year="2" onclick="openProjectModal('ENSEIGNEMENT PROGRAMMATION WEB', '👨‍🏫', 'Formation NSI Lycée', 'Enseignement de la programmation web (HTML, CSS, JS) pendant 1 mois pour une classe de Première NSI au Lycée Jean Macé de Niort. Conception de cours et accompagnement technique. *Image d\'illustration', ['HTML', 'CSS', 'JavaScript'], 'assets/projects/cours/cours_td_nsi.rar', 'assets/projects/cours/cours-nsi.jpg')">
-                <div class="project-icon">👨‍🏫</div>
-                <h3>ENSEIGNEMENT PROGRAMMATION WEB</h3>
-                <p>Formation NSI - Lycée Jean Macé</p>
-            </div>
-            
-            <div class="project-card" data-year="2" onclick="openProjectModal('OUTIL COMPARAISON DE VILLES', '🏙️', 'Dashboard Streamlit', 'Création d\'une interface web contenant un tableau de bord avec plusieurs pages pour la sélection et la comparaison de 2 villes françaises de plus de 20 000 habitants (Streamlit). Collecte et traitement de données via des fichiers et APIs (INSEE, Pôle Emploi, Open data). Cartographie et analyse d\'indicateurs multiples tels que l\'emploi, le logement et la météo.', ['Streamlit', 'Python', 'APIs', 'Data Analysis'], 'assets/projects/js/SAE_PW_Octave_Ely_Camille.zip', 'assets/projects/js/js.jpg')">
-                <div class="project-icon">🏙️</div>
-                <h3>OUTIL COMPARAISON DE VILLES</h3>
-                <p>Streamlit - Dashboard multipage</p>
-            </div>
+        </section>
 
-            <div class="project-card" data-year="2" onclick="openProjectModal('APPLICATION DE SUIVI DES ÉVÉNEMENTS ÉTUDIANTS', '🗂️', 'Dashboard VBA', 'Création d\'un classeur interactif de recensement des étudiants lors d\'événements d\'orientation tels que les salons, les journées portes ouvertes et les immersions.', ['VBA', 'Google Apps Script'], 'assets/projects/vbaprojet.zip', 'assets/projects/vba.png')">
-                <div class="project-icon">🗂️</div>
-                <h3>APPLICATION DE SUIVI DES ÉVÉNEMENTS ÉTUDIANTS</h3>
-                <p>Dashboard VBA</p>
-            </div>
+        <section id="contact" class="contact section-shell">
+            <div class="contact-mark" aria-hidden="true">✳</div>
+            <div class="section-label reveal"><span>04</span><i></i><span>Le prochain chapitre</span></div>
+            <div class="contact-content reveal"><p class="overline">Une question, un projet, une intuition ?</p><h2>On donne<br>une forme à<br><em>vos données.</em></h2><a class="contact-mail" href="mailto:ely.mouthon@gmail.com">ely.mouthon@gmail.com <span>↗</span></a></div>
+            <div class="contact-foot"><span>Niort / Bretagne / partout</span><a href="https://www.linkedin.com/in/ely-mouthon-880505337" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
+        </section>
+    </main>
 
-            <div class="project-card" data-year="2" onclick="openProjectModal('PRÉVISION DES COURS DU CUIVRE', '📈', 'Séries temporelles', 'Étude et modélisation de la dynamique complexe des prix du cuivre afin de fournir des projections fiables pour 2026-2027 aux investisseurs.', ['Excel', 'Séries Temporelles','modèle','ajustement'], 'assets/projects/serie_temp.pdf', 'assets/projects/cuivre.PNG')">
-                <div class="project-icon">📈</div>
-                <h3>PRÉVISION DES COURS DU CUIVRE</h3>
-                <p>Séries temporelles</p>
-            </div>
+    <footer><span>© 2026 ELY MOUTHON</span><span>Fait avec curiosité & précision.</span></footer>
 
-            <div class="project-card" data-year="2" onclick="openProjectModal('Intégration de données dans un Data Warehouse', '🗄️', 'Architecture ETL & BI', 'Conception d\'un entrepôt de données complet à partir de sources disparates et impures pour produire des analyses décisionnelles stratégiques via des outils professionnels d\'ETL et de visualisation.', ['Création de tableaux de bord BI', 'Schéma en étoile', 'Architecture ETL (Data Warehouse)', 'Python', 'PowerBI', 'Talend', 'Oracle SQL'], '', 'assets/projects/datawarehouse.png')">
-                <div class="project-icon">🗄️</div>
-                <h3>Intégration de données dans un Data Warehouse</h3>
-                <p>Architecture ETL & BI</p>
-            </div>
-
-            <div class="project-card" data-year="2" onclick="openProjectModal('MISE EN CONFORMITÉ RGPD', '🔒', 'Droit des données & Sécurité', 'Audit et propositions de mise en conformité au RGPD pour le service des Ressources Humaines d\'une entreprise industrielle. Analyse critique des données sensibles traitées (identités, carrières, données médicales) et recommandations stratégiques pour sécuriser les traitements selon la réglementation en vigueur.', ['RGPD', 'Droit des données', 'Audit de conformité', 'Sécurité de l\'information'], '', 'assets/projects/rgpd.png')">
-                <div class="project-icon">🔒</div>
-                <h3>MISE EN CONFORMITÉ RGPD</h3>
-                <p>Droit des données & Sécurité</p>
-            </div>
-            
-            <div class="project-notice" data-year="2" style="grid-column: 1/-1; padding: 0.75rem 1rem; background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; margin-bottom: 1rem;">
-                <p style="margin: 0; color: #856404; font-weight: 400; font-size: 0.9rem;">
-                    💡 Si vous souhaitez découvrir d'autres projets réalisés sur différents outils et logiciels, n'hésitez pas à me contacter.
-                </p>
-            </div>
-            
-            <!-- 3ème année -->
-            <div class="project-notice" data-year="3" style="grid-column: 1/-1; padding: 0.75rem 1rem; background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; margin-bottom: 1rem;">
-                <p style="margin: 0; color: #856404; font-weight: 400; font-size: 0.9rem;">📅 Projets de la troisième année indisponibles pour le moment (actuellement en 2ème année)</p>
-            </div>
-
-
-            <!-- Projets Professionnels -->
-            <div class="project-card" data-year="4" onclick="openProjectModal('OUTIL GÉNÉRATION RAPPORT HOSPITALIER', '🎯', 'shiny app', 'Création d\'une interface en Rshiny permettant de produire un rapport word de l\'activité d\'unités du centre hospitalier. Requête sql via la base oracle et utlisation de RMarkdown pour la partie visuelle du word', ['SQL', 'R', 'Rshiny', 'RMarkdown'], '', 'assets/projects/Capture.PNG')">
-                <div class="project-icon">🎯</div>
-                <h3>OUTIL GÉNÉRATION RAPPORT HOSPITALIER</h3>
-                <p>SQL, R, Rshiny, RMarkdown </p>
-            </div>
-                
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="section-heading"><span class="section-number">04</span><h2 class="section-title">Bilan</h2><span class="heading-rule"></span></div>
-        <div class="bilan-box">
-            <h3>📄 Mon Bilan</h3>
-            <p>Téléchargez mon bilan pour une lecture complète de mon parcours.</p>
-            <a href="docs/bilan.pdf" class="btn btn-primary" download>Télécharger le PDF</a>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="section-heading"><span class="section-number">05</span><h2 class="section-title">Une idée en tête ?</h2><span class="heading-rule"></span></div>
-        <p class="contact-lead">Je suis toujours partant pour parler data, visualisation et projets qui ont du sens.</p>
-        <a href="cv.pdf" class="btn btn-primary" download style="display: block; margin: 0 auto 2rem; width: fit-content;">Télécharger mon CV</a>
-        <div class="contact-info">
-            <div class="contact-item">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                <p>Email</p>
-                <a href="mailto:ely.mouthon@outlook.fr">ely.mouthon@outlook.fr</a>
-                <small> </small>
-            </div>
-            <div class="contact-item">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-                </svg>
-                <p>Téléphone</p>
-                <a href="tel:+33612345678">07 87 50 50 82</a>
-                <small> </small>
-            </div>
-            <div class="contact-item">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                </svg>
-                <p>Localisation</p>
-                <span>Lorient, Bretagne</span>
-                <small> </small>
-            </div>
-            <div class="contact-item">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-                <p>LinkedIn</p>
-                <span>
-                    <a href="https://www.linkedin.com/in/ely-mouthon-880505337" target="_blank" style="color: inherit; text-decoration: none;">
-                    Ely Mouthon
-                    </a>
-                </span>
-                <small></small>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        
-        <div class="footer-content">
-           
-            <p class="footer-credit">&copy; 2026 ELY MOUTHON | Tous droits réservés.</p>
-        </div>
-    </footer>
-
-    <!-- Project Modal -->
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div class="modal-header">
-                <div class="modal-icon" id="modalIcon">🎯</div>
-                <h3 id="modalTitle">Titre du Projet</h3>
-                <p id="modalSubtitle" class="modal-subtitle">Sous-titre</p>
-            </div>
-            <img id="modalImage" class="modal-image" src="" alt="Screenshot du projet" style="display: none;">
-            <div id="modalAdditionalImages" class="modal-additional-images" style="display: none;"></div>
-            <p id="modalDetails">Détails du projet...</p>
-            <div id="modalTags" class="project-tags"></div>
-            <div class="modal-buttons">
-                <a href="#" id="modalSiteBtn" class="btn btn-secondary" target="_blank" style="display: none;">Voir le site du projet</a>
-                <a href="#" id="modalDownload" class="btn btn-primary" download>Télécharger le PDF</a>
-            </div>
+    <div class="modal" id="projectModal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" aria-label="Fermer">&times;</button>
+            <div class="modal-heading"><span id="modalIcon">01</span><div><p id="modalSubtitle" class="overline">Projet</p><h3 id="modalTitle">Titre du projet</h3></div></div>
+            <img id="modalImage" class="modal-image" src="" alt="" hidden>
+            <p id="modalDetails" class="modal-details"></p><div id="modalTags" class="project-tags"></div>
+            <div class="modal-buttons"><a href="#" id="modalSiteBtn" class="button button-line" target="_blank" rel="noreferrer" hidden>Voir le projet ↗</a><a href="#" id="modalDownload" class="button button-fill" download hidden>Télécharger <span>↓</span></a></div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
