@@ -22,6 +22,13 @@ body {
   background: #050505;
 }
 
+.app-shell {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #050505;
+}
+
 a {
   color: inherit;
 }
@@ -29,15 +36,16 @@ a {
 .hero {
   min-height: 100svh;
   position: relative;
+  z-index: 1;
   isolation: isolate;
   overflow: hidden;
-  background: #050505;
+  background: transparent;
 }
 
 .scene3d {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
 }
 
 .scene3d::after {
@@ -156,6 +164,13 @@ a {
   left: clamp(1.25rem, 10vw, 10rem);
   max-width: 64rem;
   transform: translateY(-43%);
+}
+
+.hero__subtitle {
+  margin: 1.25rem 0 0;
+  color: #d1ddd0;
+  font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+  line-height: 1.4;
 }
 
 .eyebrow {
