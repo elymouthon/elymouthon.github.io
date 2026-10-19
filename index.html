@@ -1,89 +1,13 @@
 <!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ely Mouthon — Data analyst et architecte du chaos.">
-  <title>ELY // DIGITAL WILDERNESS</title>
-  <link rel="icon" href="assets/images/logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <canvas id="data-canvas" aria-hidden="true"></canvas>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="cursor-orb" aria-hidden="true"></div>
-
-  <header class="topbar">
-    <a class="brand" href="#home"><span>EM</span><b>ELY<span>.</span></b></a>
-    <div class="system-readout"><i></i> ECOSYSTEM ONLINE / 2026.10</div>
-    <button class="menu-toggle" aria-label="Ouvrir la navigation" aria-expanded="false"><span></span><span></span></button>
-    <nav class="nav-links">
-      <a href="#about"><small>01</small> Racines</a>
-      <a href="#projects"><small>02</small> Monolithes</a>
-      <a href="#analytics"><small>03</small> Altimétrie</a>
-      <a href="#contact"><small>04</small> Signal <b>↗</b></a>
-    </nav>
-  </header>
-
-  <main>
-    <section id="home" class="node hero-node">
-      <div class="hud-corner hud-tl">ECO_00 / ORIGIN</div>
-      <div class="hud-corner hud-br">LAT 46.32 / LONG -1.15 / ALT 286</div>
-      <div class="hero-copy">
-        <p class="kicker">Étudiant en Data <span>//</span> Explorateur de modèles</p>
-        <h1 data-glitch="NATURE IS THE ULTIMATE ALGORITHM.">NATURE IS<br>THE <em>ULTIMATE</em><br>ALGORITHM<span class="dot">.</span></h1>
-        <p class="hero-lead">Je cherche la géologie cachée des données : les reliefs, les failles et les systèmes vivants qui donnent une forme au chaos.</p>
-        <div class="hero-actions"><a class="button button-acid" href="#projects">Traverser la brume <span>↓</span></a><a class="button" href="cv.pdf" download>Journal / PDF <span>↗</span></a></div>
-      </div>
-      <div class="hero-signal"><span>TOPOGRAPHIC FIELD</span><strong>2,864 M</strong><small>elevation mapped</small></div>
-      <div class="scroll-prompt"><span class="pulse-dot"></span> DESCEND INTO THE DATA <b>↓</b></div>
-    </section>
-
-    <section id="about" class="node about-node">
-      <div class="section-head"><span class="node-number">01</span><span class="line"></span><span>THE MYCELIUM / ROOT SYSTEM</span><span class="status">● ROOTS ALIVE</span></div>
-      <div class="about-layout">
-        <div><p class="kicker">Profil / specimen 2.0</p><h2>Penser comme<br>une <em>forêt.</em></h2><p class="section-intro">Chaque compétence est une racine. Chaque projet, une pousse qui trouve son chemin dans l'obscurité.</p></div>
-        <div class="spec-card">
-          <div class="spec-top"><span>SPECIMEN: ELY_MOUTHON</span><span>STATUS: GROWING</span></div>
-          <div class="spec-core"><div class="core-ring"><span>EM</span></div><div><strong>DATA / NATURE / IMPACT</strong><small>Niort, France — 20.04.2004</small></div></div>
-          <div class="skill-orbit"><span style="--i:0">PYTHON</span><span style="--i:1">SQL</span><span style="--i:2">R</span><span style="--i:3">POWER BI</span><span style="--i:4">QGIS</span><span style="--i:5">ML</span></div>
-          <div class="spec-log"><p><b>›</b> tracing hidden roots... <em>100%</em></p><p><b>›</b> reading the terrain... <em>READY</em></p><p><b>›</b> seeking next summit... <em>TRUE</em></p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="node projects-node">
-      <div class="section-head"><span class="node-number">02</span><span class="line"></span><span>THE MONOLITHS / FIELD NOTES</span><span class="status">03 DISCOVERED</span></div>
-      <div class="projects-intro"><h2>Des idées<br>comme des <em>massifs.</em></h2><p>Des projets réels, des hypothèses sauvages et quelques modèles encore enfouis sous la brume.</p></div>
-      <div class="project-deck">
-        <article class="data-card card-a"><div class="card-meta"><span>MON_001 / EXPOSED</span><b>↗</b></div><div class="card-art art-grid"></div><p class="card-type">Intelligence territoriale</p><h3>Lire<br>le territoire.</h3><div class="card-bottom"><span>QGIS · PYTHON</span><strong>ALT: 87.2%</strong></div></article>
-        <article class="data-card card-b"><div class="card-meta"><span>MON_002 / CLASSIFIED</span><b>↗</b></div><div class="card-art art-wave"></div><p class="card-type">Satellite forest guard</p><h3>Geospatial<br>Forest Guard</h3><div class="progress"><i></i></div><div class="card-bottom"><span>PYTHON · ML</span><strong>TRAINING 64%</strong></div></article>
-        <article class="data-card card-c"><div class="card-meta"><span>MON_003 / SUBMERGED</span><b>↗</b></div><div class="card-art art-rings"></div><p class="card-type">Deep ocean sentiment</p><h3>Observer<br>les abysses.</h3><div class="card-bottom"><span>RSHINY · INSEE</span><strong>12M ROWS</strong></div></article>
-      </div>
-      <p class="data-note">* les données fictives sont signalées par une balise <span>●</span></p>
-    </section>
-
-    <section id="analytics" class="node analytics-node">
-      <div class="section-head"><span class="node-number">03</span><span class="line"></span><span>ALTIMETRY / ASCENSION LOG</span><span class="status">ELEVATION RISING ↑</span></div>
-      <div class="analytics-head"><div><p class="kicker">Expedition log / 2023—2026</p><h2>Chaque erreur<br>devient une <em>altitude.</em></h2></div><div class="metric-readout"><strong id="metric-value">94.7</strong><span id="metric-label">/ SUMMIT INDEX</span></div></div>
-      <div class="chart-shell">
-        <div class="chart-axis"><span>100</span><span>75</span><span>50</span><span>25</span><span>0</span></div>
-        <svg class="learning-chart" viewBox="0 0 1000 360" role="img" aria-label="Ligne de crête interactive de progression"><defs><linearGradient id="chartGradient" x1="0" x2="1"><stop stop-color="#86ff72"/><stop offset="1" stop-color="#d8f6b0"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path class="chart-fill" d="M0 300 C80 290 90 245 170 260 S250 170 340 210 S430 150 500 165 S580 80 670 120 S760 70 820 88 S900 34 1000 45 V360 H0Z"/><path class="chart-line" d="M0 300 C80 290 90 245 170 260 S250 170 340 210 S430 150 500 165 S580 80 670 120 S760 70 820 88 S900 34 1000 45"/></svg><div class="chart-points"><button tabindex="0" data-value="42.1" data-label="BASE CAMP / 2023" style="--x:16%;--y:73%"></button><button tabindex="0" data-value="68.8" data-label="DEEP LEARNING / 2024" style="--x:39%;--y:54%"></button><button tabindex="0" data-value="81.3" data-label="SQL STORM / 2025" style="--x:67%;--y:28%"></button><button tabindex="0" data-value="94.7" data-label="PREDICTIVE SUMMIT / 2026" style="--x:91%;--y:13%"></button></div>
-        <div class="chart-years"><span>2023 / BASE CAMP</span><span>2024 / ASCENT</span><span>2025 / STORM</span><span>2026 / SUMMIT</span></div>
-      </div>
-    </section>
-
-    <section id="contact" class="node contact-node">
-      <div class="section-head"><span class="node-number">04</span><span class="line"></span><span>THE SIGNAL / LAST LIGHT</span><span class="status">CHANNEL OPEN</span></div>
-      <div class="contact-layout"><div><p class="kicker">Protocole de contact</p><h2>Laissez une<br>trace dans la <em>roche.</em></h2><p class="section-intro">Une idée étrange, une donnée indomptable ou juste l'envie de construire quelque chose de différent.</p><a class="contact-mail" href="mailto:ely.mouthon@gmail.com">ely.mouthon@gmail.com ↗</a></div>
-        <form class="terminal-form" action="mailto:ely.mouthon@gmail.com" method="post" enctype="text/plain"><div class="terminal-bar"><span></span><span></span><span></span><b>FIELD NOTE / MESSAGE</b></div><label><span>01 / LATITUDE — IDENT</span><input name="name" required placeholder="votre_nom"></label><label><span>02 / LONGITUDE — FREQUENCY</span><input name="email" type="email" required placeholder="votre@email.com"></label><label><span>03 / ALTITUDE — PAYLOAD</span><textarea name="message" required placeholder="gravez votre message..."></textarea></label><button class="button button-acid" type="submit">SEND INTO THE FOG <span>↗</span></button><small>Le signal traversera la chaîne de montagnes.</small></form>
-      </div>
-    </section>
-  </main>
-  <footer><span>© ELY MOUTHON / DIGITAL WILDERNESS</span><span>MADE WITH CURIOSITY + PRECISION</span></footer>
-  <script type="module" src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ely Mouthon — Data et paysages numériques." />
+    <title>ELY // DIGITAL WILDERNESS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
