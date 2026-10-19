@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ely Mouthon - Portfolio</title>
+    <meta name="description" content="Portfolio d'Ely Mouthon, étudiant en Science des Données et stagiaire Data Analyst.">
+    <title>Ely Mouthon — Data analyst & storyteller</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/images/logo.png">
 </head>
@@ -11,12 +12,13 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
+            <a class="logo" href="#home" aria-label="Retour à l'accueil"><span>EM</span><strong>ELY<span>.</span></strong></a>
             <ul class="nav-links">
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#about">À Propos</a></li>
+                <li><a href="#home">01 / Accueil</a></li>
+                <li><a href="#about">02 / Profil</a></li>
                 <li><a href="#projects">Projets</a></li>
                 <li><a href="#skills">Bilan</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="nav-contact">Parlons-en ↗</a></li>
             </ul>
             <div class="menu-toggle">
                 <span></span>
@@ -28,14 +30,23 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-eyebrow"><span class="status-dot"></span> Disponible pour une nouvelle aventure data</div>
         <div class="hero-content">
-            <h1>Ely<br><span class="highlight">Mouthon</span></h1>
-            <p>Etudiant en Data Science | Stagiaire Data Analyst.</p>
+            <p class="hero-kicker">Portfolio · 2026</p>
+            <h1>Je donne du <em>sens</em><br>à vos données.</h1>
+            <p>Étudiant en Science des Données et stagiaire Data Analyst, je transforme les chiffres complexes en décisions claires, utiles et mémorables.</p>
             <div class="cta-buttons">
-                <button class="btn btn-primary" onclick="smoothScroll('about')">À Propos de Moi</button>
-                <button class="btn btn-secondary" onclick="smoothScroll('projects')">Mes Projets</button>
+                <a class="btn btn-primary" href="#projects">Explorer mes projets <span>↗</span></a>
+                <a class="btn btn-secondary" href="cv.pdf" download>Mon CV <span>↓</span></a>
             </div>
         </div>
+        <div class="hero-aside">
+            <span class="hero-index">01</span>
+            <span class="hero-line"></span>
+            <span class="hero-vertical">SCROLL TO EXPLORE</span>
+        </div>
+        <div class="hero-stamp" aria-hidden="true"><span>DATA</span><strong>+</strong><span>IMPACT</span></div>
         <div class="scroll-indicator" onclick="smoothScroll('about')">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 5v14M5 12l7 7 7-7"/>
@@ -45,7 +56,7 @@
 
     <!-- About Section -->
     <section id="about">
-        <h2 class="section-title">À Propos de Moi</h2>
+        <div class="section-heading"><span class="section-number">02</span><h2 class="section-title">Profil</h2><span class="heading-rule"></span></div>
         <div class="about">
             <div class="about-content">
                 <h3 style="margin-top: 0; color: #d2b664; font-size: 1.3rem;">Un ancrage breton au service de la donnée</h3>
@@ -70,16 +81,22 @@
                     </div>
                 </div>
             </div>
+            <div class="about-metrics">
+                <div><strong>20</strong><span>ans · Lorient</span></div>
+                <div><strong>BUT 2</strong><span>Science des Données</span></div>
+                <div><strong>∞</strong><span>curiosité & endurance</span></div>
+            </div>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
-        <h2 class="section-title">Projets</h2>
+        <div class="section-heading"><span class="section-number">03</span><h2 class="section-title">Sélection de projets</h2><span class="heading-rule"></span></div>
+        <p class="section-lead">Des données brutes aux interfaces qui racontent une histoire. Chaque projet est une occasion de rendre l'information plus lisible et plus actionnable.</p>
         
         <!-- Filters -->
         <div class="project-filters">
-            <button class="filter-btn active" data-year="1">1ère année</button>
+            <button class="filter-btn" data-year="1">1ère année</button>
             <button class="filter-btn" data-year="2">2ème année</button>
             <button class="filter-btn" data-year="3">3ème année</button>
             <button class="filter-btn" data-year="4">Projets Professionnels</button>
@@ -176,7 +193,7 @@
 
     <!-- Skills Section -->
     <section id="skills">
-        <h2 class="section-title">Bilan</h2>
+        <div class="section-heading"><span class="section-number">04</span><h2 class="section-title">Bilan</h2><span class="heading-rule"></span></div>
         <div class="bilan-box">
             <h3>📄 Mon Bilan</h3>
             <p>Téléchargez mon bilan pour une lecture complète de mon parcours.</p>
@@ -186,7 +203,8 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2 class="section-title">Collaborons Ensemble</h2>
+        <div class="section-heading"><span class="section-number">05</span><h2 class="section-title">Une idée en tête ?</h2><span class="heading-rule"></span></div>
+        <p class="contact-lead">Je suis toujours partant pour parler data, visualisation et projets qui ont du sens.</p>
         <a href="cv.pdf" class="btn btn-primary" download style="display: block; margin: 0 auto 2rem; width: fit-content;">Télécharger mon CV</a>
         <div class="contact-info">
             <div class="contact-item">
@@ -194,7 +212,7 @@
                     <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
                 <p>Email</p>
-                <a href="mailto:hello@example.com">ely.mouthon@outlook.fr</a>
+                <a href="mailto:ely.mouthon@outlook.fr">ely.mouthon@outlook.fr</a>
                 <small> </small>
             </div>
             <div class="contact-item">

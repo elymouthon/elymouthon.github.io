@@ -13,6 +13,7 @@ const navLinks = document.querySelector('.nav-links');
 if (menuToggle) {
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
         animateMenuToggle();
     });
 }
@@ -41,25 +42,13 @@ function animateMenuToggle() {
 }
 
 function resetMenuToggle() {
+    menuToggle.classList.remove('active');
     const spans = menuToggle.querySelectorAll('span');
     spans.forEach(span => {
         span.style.transform = 'none';
         span.style.opacity = '1';
     });
 }
-
-// ==================== DYNAMIC BACKGROUND DARKENING ON SCROLL ====================
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = Math.min(scrollY / 500, 1); // Progressive darkening over 500px
-    
-    // Opacité: de 0.5-0.6 au début à 0.7-0.8 au scroll
-    const opacity1 = 0.5 + (scrollPercent * 0.2);
-    const opacity2 = 0.6 + (scrollPercent * 0.2);
-    
-    document.body.style.backgroundImage = `linear-gradient(rgba(10, 18, 10, ${opacity1}), rgba(10, 18, 10, ${opacity2})), url('assets/images/hero-bg.webp')`;
-});
 
 // ==================== PROJECTS FILTERING ====================
 function setupFilters() {
