@@ -1,142 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio d'Ely Mouthon — Data analyst, storyteller et explorateur de données.">
-    <title>Ely Mouthon — Data, avec intention.</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ely Mouthon — Data analyst et architecte du chaos.">
+  <title>ELY // DATA IS ALIVE</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="cursor-glow" aria-hidden="true"></div>
-    <div class="site-noise" aria-hidden="true"></div>
+  <canvas id="data-canvas" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="cursor-orb" aria-hidden="true"></div>
 
-    <nav class="site-nav">
-        <div class="nav-inner">
-            <a class="logo" href="#home" aria-label="Retour à l'accueil"><span>EM</span><strong>ELY<span>.</span></strong></a>
-            <div class="nav-status"><i></i> Ouvert aux opportunités</div>
-            <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
-            <ul class="nav-links">
-                <li><a href="#about">Profil <small>01</small></a></li>
-                <li><a href="#projects">Travaux <small>02</small></a></li>
-                <li><a href="#method">Méthode <small>03</small></a></li>
-                <li><a href="#contact" class="nav-contact">Parlons data <b>↗</b></a></li>
-            </ul>
-        </div>
+  <header class="topbar">
+    <a class="brand" href="#home"><span>EM</span><b>ELY<span>.</span></b></a>
+    <div class="system-readout"><i></i> SYSTEM ONLINE / 2026.10</div>
+    <button class="menu-toggle" aria-label="Ouvrir la navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav-links">
+      <a href="#about"><small>01</small> Noyau humain</a>
+      <a href="#projects"><small>02</small> Datacores</a>
+      <a href="#analytics"><small>03</small> Analytics</a>
+      <a href="#contact"><small>04</small> Uplink <b>↗</b></a>
     </nav>
+  </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-grid" aria-hidden="true"></div>
-            <div class="hero-meta reveal"><span>Portfolio / 2026</span><span>02°56'N — 47°45'O</span></div>
-            <div class="hero-content">
-                <p class="eyebrow reveal">Data analyst · créateur de clarté</p>
-                <h1 class="reveal">Les données<br>ont une <em>voix.</em></h1>
-                <p class="hero-intro reveal">Je m'appelle Ely. Je transforme les signaux faibles, les tableaux bruts et les questions complexes en décisions qui font avancer.</p>
-                <div class="hero-actions reveal">
-                    <a class="button button-fill" href="#projects">Voir les travaux <span>↓</span></a>
-                    <a class="button button-line" href="cv.pdf" download>Lire mon CV <span>↗</span></a>
-                </div>
-            </div>
-            <div class="hero-orbit" aria-hidden="true"><span>ANALYSE</span><b>+</b><span>IMPACT</span></div>
-            <div class="hero-bottom"><span>Scroll pour explorer</span><span class="scroll-arrow">↓</span><span>01 / 04</span></div>
-        </section>
+  <main>
+    <section id="home" class="node hero-node">
+      <div class="hud-corner hud-tl">NODE_00 / INIT</div>
+      <div class="hud-corner hud-br">LAT 46.32 / LONG -1.15</div>
+      <div class="hero-copy">
+        <p class="kicker">Étudiant en Data <span>//</span> Architecte du chaos</p>
+        <h1 data-glitch="DATA IS NOT DEAD, IT'S ALIVE.">DATA IS<br><em>NOT DEAD,</em><br>IT'S ALIVE<span class="dot">.</span></h1>
+        <p class="hero-lead">Je transforme les signaux faibles, les datasets bruts et les questions complexes en systèmes qui font sens.</p>
+        <div class="hero-actions"><a class="button button-acid" href="#projects">Entrer dans le système <span>↓</span></a><a class="button" href="cv.pdf" download>CV / PDF <span>↗</span></a></div>
+      </div>
+      <div class="hero-signal"><span>PARTICLE FIELD</span><strong>86.4K</strong><small>entities tracked</small></div>
+      <div class="scroll-prompt"><span class="pulse-dot"></span> SCROLL TO TRAVERSE <b>↓</b></div>
+    </section>
 
-        <section id="about" class="about section-shell">
-            <div class="section-label reveal"><span>01</span><i></i><span>Le profil</span></div>
-            <div class="about-layout">
-                <div class="about-statement reveal">
-                    <p class="overline">À propos</p>
-                    <h2>Rendre le<br><em>complexe</em><br>évident.</h2>
-                </div>
-                <div class="about-copy reveal">
-                    <p class="large-copy">Étudiant en deuxième année de BUT Science des Données, je navigue entre analyse statistique, visualisation et développement d'outils utiles.</p>
-                    <p>Originaire de Lorient et actuellement basé à Niort, j'aime les problèmes qui demandent à la fois de la méthode et de l'intuition. Mon expérience de stagiaire Data Analyst à l'EPSM Sud Bretagne m'a appris qu'une bonne donnée ne vaut que par la décision qu'elle permet de prendre.</p>
-                    <a class="text-link" href="cv.pdf" download>Parcourir mon parcours <span>↗</span></a>
-                </div>
-            </div>
-            <div class="metrics reveal">
-                <div><strong>20</strong><span>ans · Lorient</span></div>
-                <div><strong>02</strong><span>années de data</span></div>
-                <div><strong>∞</strong><span>curiosité active</span></div>
-                <div><strong>42,2</strong><span>km de persévérance</span></div>
-            </div>
-        </section>
-
-        <section id="projects" class="projects section-shell">
-            <div class="section-label reveal"><span>02</span><i></i><span>Les travaux</span></div>
-            <div class="projects-head reveal">
-                <h2>Ce que les chiffres<br><em>racontent.</em></h2>
-                <p>Une sélection de projets où la donnée devient carte, interface, modèle ou outil d'aide à la décision.</p>
-            </div>
-            <div class="project-filters reveal" role="tablist" aria-label="Filtrer les projets">
-                <button class="filter-btn active" data-year="2">Sélection</button>
-                <button class="filter-btn" data-year="1">Année 01</button>
-                <button class="filter-btn" data-year="4">Professionnel</button>
-                <button class="filter-btn" data-year="3">À venir</button>
-            </div>
-            <div class="projects-grid">
-                <article class="project-card project-feature reveal" data-year="2" onclick="openProjectModal('REPORTING D’UNE ANALYSE MULTIVARIÉE', '01', 'RShiny · INSEE DATA', 'Outil visuel et automatisé de suivi-évaluation de la pauvreté en France à l’aide de données de l’INSEE. Traitement, nettoyage et mise en récit des données dans une application web interactive.', ['RShiny', 'R', 'INSEE Data'], 'assets/projects/rshiny/rshinyProject(Ely%20Mouthon%20&%20Louis%20Le%20Merlus).zip', 'assets/projects/rshiny/rshiny.jpg', 'https://elymouthon.shinyapps.io/observatoire-pauvrete/')">
-                    <div class="card-index">01 / 08</div><div class="project-symbol">◒</div><div class="card-arrow">↗</div>
-                    <div class="project-card-content"><p class="card-type">Application interactive</p><h3>Observer<br>la pauvreté.</h3><p class="card-footer">RShiny <span>—</span> Data storytelling</p></div>
-                </article>
-                <article class="project-card project-map reveal" data-year="2" onclick="openProjectModal('ÉTUDE STRATÉGIQUE D’IMPLANTATION', '02', 'QGIS · ANALYSE SPATIALE', 'Étude des structures McDonald’s en France afin d’aiguiller les futurs franchisés vers les zones présentant le meilleur potentiel. Traitement de données géographiques, cartographie et analyse spatiale.', ['QGIS', 'Géospatial', 'Analyse Spatiale'], 'assets/projects/qgis/projetSIG_ElyMouthon_OctaveRomer.zip', 'assets/projects/qgis/qgis.jpg')">
-                    <div class="card-index">02 / 08</div><div class="project-symbol">⌖</div><div class="card-arrow">↗</div>
-                    <div class="project-card-content"><p class="card-type">Intelligence territoriale</p><h3>Lire le<br>territoire.</h3><p class="card-footer">QGIS <span>—</span> Géospatial</p></div>
-                </article>
-                <article class="project-card project-light reveal" data-year="2" onclick="openProjectModal('OUTIL COMPARAISON DE VILLES', '03', 'STREAMLIT · PYTHON', 'Interface web multipage pour comparer deux villes françaises de plus de 20 000 habitants à partir d’indicateurs d’emploi, de logement et de météo.', ['Streamlit', 'Python', 'APIs', 'Data Analysis'], 'assets/projects/js/SAE_PW_Octave_Ely_Camille.zip', 'assets/projects/js/js.jpg')">
-                    <div class="card-index">03 / 08</div><div class="project-symbol">↔</div><div class="card-arrow">↗</div>
-                    <div class="project-card-content"><p class="card-type">Outil décisionnel</p><h3>Deux villes.<br>Un choix.</h3><p class="card-footer">Streamlit <span>—</span> Python</p></div>
-                </article>
-                <article class="project-card project-dark reveal" data-year="2" onclick="openProjectModal('PRÉVISION DES COURS DU CUIVRE', '04', 'SÉRIES TEMPORELLES', 'Étude et modélisation de la dynamique complexe des prix du cuivre afin de fournir des projections pour les investisseurs.', ['Excel', 'Séries temporelles', 'Modèle'], 'assets/projects/serie_temp.pdf', 'assets/projects/cuivre.PNG')">
-                    <div class="card-index">04 / 08</div><div class="project-symbol">⌁</div><div class="card-arrow">↗</div>
-                    <div class="project-card-content"><p class="card-type">Projection</p><h3>Anticiper<br>le mouvement.</h3><p class="card-footer">Forecasting <span>—</span> Modélisation</p></div>
-                </article>
-                <article class="project-card project-wide reveal" data-year="2" onclick="openProjectModal('INTÉGRATION DE DONNÉES DANS UN DATA WAREHOUSE', '05', 'ETL · BI · ARCHITECTURE', 'Conception d’un entrepôt de données complet à partir de sources disparates et impures pour produire des analyses décisionnelles stratégiques.', ['ETL', 'Python', 'Power BI', 'Talend', 'Oracle SQL'], '', 'assets/projects/datawarehouse.png')">
-                    <div class="card-index">05 / 08</div><div class="project-symbol">▦</div><div class="card-arrow">↗</div>
-                    <div class="project-card-content"><p class="card-type">Architecture data</p><h3>Organiser<br>le chaos.</h3><p class="card-footer">Data Warehouse <span>—</span> BI</p></div>
-                </article>
-                <article class="project-card project-pro reveal" data-year="4" onclick="openProjectModal('OUTIL GÉNÉRATION RAPPORT HOSPITALIER', '06', 'STAGE · EPSM SUD BRETAGNE', 'Création d’une interface en RShiny permettant de produire un rapport Word de l’activité d’unités du centre hospitalier. Requêtes SQL via Oracle et mise en forme avec RMarkdown.', ['SQL', 'R', 'RShiny', 'RMarkdown'], '', 'assets/projects/Capture.PNG')">
-                    <div class="card-index">06 / 08</div><div class="project-symbol">✦</div><div class="card-arrow">↗</div>
-                    <div class="project-card-content"><p class="card-type">Expérience professionnelle</p><h3>La donnée<br>au service du soin.</h3><p class="card-footer">RShiny <span>—</span> Reporting</p></div>
-                </article>
-                <div class="project-notice" data-year="1">Les projets de première année sont disponibles sur demande.</div>
-                <div class="project-notice" data-year="3">Les projets de troisième année arrivent bientôt.</div>
-            </div>
-        </section>
-
-        <section id="method" class="method section-shell">
-            <div class="section-label reveal"><span>03</span><i></i><span>La méthode</span></div>
-            <div class="method-layout">
-                <div class="method-intro reveal"><h2>Pas de magie.<br>Une <em>méthode.</em></h2><p>Chaque projet commence par une bonne question. Le reste est une histoire de précision, de curiosité et de transmission.</p></div>
-                <div class="method-steps">
-                    <div class="method-step reveal"><span>01</span><div><h3>Écouter le signal</h3><p>Comprendre le terrain, les enjeux et ce qui se cache derrière la demande.</p></div></div>
-                    <div class="method-step reveal"><span>02</span><div><h3>Structurer le réel</h3><p>Nettoyer, croiser et modéliser jusqu'à faire émerger une lecture fiable.</p></div></div>
-                    <div class="method-step reveal"><span>03</span><div><h3>Rendre visible</h3><p>Construire l'outil ou la visualisation qui rend l'action évidente.</p></div></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact section-shell">
-            <div class="contact-mark" aria-hidden="true">✳</div>
-            <div class="section-label reveal"><span>04</span><i></i><span>Le prochain chapitre</span></div>
-            <div class="contact-content reveal"><p class="overline">Une question, un projet, une intuition ?</p><h2>On donne<br>une forme à<br><em>vos données.</em></h2><a class="contact-mail" href="mailto:ely.mouthon@gmail.com">ely.mouthon@gmail.com <span>↗</span></a></div>
-            <div class="contact-foot"><span>Niort / Bretagne / partout</span><a href="https://www.linkedin.com/in/ely-mouthon-880505337" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
-        </section>
-    </main>
-
-    <footer><span>© 2026 ELY MOUTHON</span><span>Fait avec curiosité & précision.</span></footer>
-
-    <div class="modal" id="projectModal" aria-hidden="true">
-        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <button class="modal-close" aria-label="Fermer">&times;</button>
-            <div class="modal-heading"><span id="modalIcon">01</span><div><p id="modalSubtitle" class="overline">Projet</p><h3 id="modalTitle">Titre du projet</h3></div></div>
-            <img id="modalImage" class="modal-image" src="" alt="" hidden>
-            <p id="modalDetails" class="modal-details"></p><div id="modalTags" class="project-tags"></div>
-            <div class="modal-buttons"><a href="#" id="modalSiteBtn" class="button button-line" target="_blank" rel="noreferrer" hidden>Voir le projet ↗</a><a href="#" id="modalDownload" class="button button-fill" download hidden>Télécharger <span>↓</span></a></div>
+    <section id="about" class="node about-node">
+      <div class="section-head"><span class="node-number">01</span><span class="line"></span><span>THE HUMAN ALGORITHM</span><span class="status">● CORE STABLE</span></div>
+      <div class="about-layout">
+        <div><p class="kicker">Profil / version 2.0</p><h2>Un cerveau<br>entre <em>deux mondes.</em></h2><p class="section-intro">La rigueur d'une base de données. L'intuition d'un regard humain. Je construis des ponts entre les deux.</p></div>
+        <div class="spec-card">
+          <div class="spec-top"><span>SUBJECT: ELY_MOUTHON</span><span>STATUS: LEARNING</span></div>
+          <div class="spec-core"><div class="core-ring"><span>EM</span></div><div><strong>DATA / DESIGN / IMPACT</strong><small>Niort, France — 20.04.2004</small></div></div>
+          <div class="skill-orbit"><span style="--i:0">PYTHON</span><span style="--i:1">SQL</span><span style="--i:2">R</span><span style="--i:3">POWER BI</span><span style="--i:4">QGIS</span><span style="--i:5">ML</span></div>
+          <div class="spec-log"><p><b>›</b> loading curiosity... <em>100%</em></p><p><b>›</b> translating complexity... <em>READY</em></p><p><b>›</b> seeking next anomaly... <em>TRUE</em></p></div>
         </div>
-    </div>
-    <script src="script.js"></script>
+      </div>
+    </section>
+
+    <section id="projects" class="node projects-node">
+      <div class="section-head"><span class="node-number">02</span><span class="line"></span><span>DATACORES / EXPERIMENTATIONS</span><span class="status">03 ACTIVE</span></div>
+      <div class="projects-intro"><h2>Les données<br>entrent en <em>collision.</em></h2><p>Des projets réels, des hypothèses dangereuses et quelques modèles encore en entraînement.</p></div>
+      <div class="project-deck">
+        <article class="data-card card-a"><div class="card-meta"><span>DC_001 / DEPLOYED</span><b>↗</b></div><div class="card-art art-grid"></div><p class="card-type">Intelligence territoriale</p><h3>Lire<br>le territoire.</h3><div class="card-bottom"><span>QGIS · PYTHON</span><strong>MC: 87.2%</strong></div></article>
+        <article class="data-card card-b"><div class="card-meta"><span>DC_002 / CLASSIFIED</span><b>↗</b></div><div class="card-art art-wave"></div><p class="card-type">Forecasting system</p><h3>Quantum<br>Predictive Model</h3><div class="progress"><i></i></div><div class="card-bottom"><span>PYTHON · ARIMA</span><strong>TRAINING 64%</strong></div></article>
+        <article class="data-card card-c"><div class="card-meta"><span>DC_003 / LIVE</span><b>↗</b></div><div class="card-art art-rings"></div><p class="card-type">Application interactive</p><h3>Observer<br>la pauvreté.</h3><div class="card-bottom"><span>RSHINY · INSEE</span><strong>MC: 12M ROWS</strong></div></article>
+      </div>
+      <p class="data-note">* MC = métrique clé // les données fictives sont signalées <span>●</span></p>
+    </section>
+
+    <section id="analytics" class="node analytics-node">
+      <div class="section-head"><span class="node-number">03</span><span class="line"></span><span>SYSTEM ANALYTICS / LEARNING PHASE</span><span class="status">LOSS DECREASING ↓</span></div>
+      <div class="analytics-head"><div><p class="kicker">Training log / 2023—2026</p><h2>Chaque erreur<br>est une <em>coordonnée.</em></h2></div><div class="metric-readout"><strong id="metric-value">94.7</strong><span id="metric-label">/ ACCURACY</span></div></div>
+      <div class="chart-shell">
+        <div class="chart-axis"><span>100</span><span>75</span><span>50</span><span>25</span><span>0</span></div>
+        <svg class="learning-chart" viewBox="0 0 1000 360" role="img" aria-label="Courbe interactive de progression"><defs><linearGradient id="chartGradient" x1="0" x2="1"><stop stop-color="#d7ff4f"/><stop offset="1" stop-color="#e83cff"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path class="chart-fill" d="M0 300 C80 290 90 245 170 260 S250 170 340 210 S430 150 500 165 S580 80 670 120 S760 70 820 88 S900 34 1000 45 V360 H0Z"/><path class="chart-line" d="M0 300 C80 290 90 245 170 260 S250 170 340 210 S430 150 500 165 S580 80 670 120 S760 70 820 88 S900 34 1000 45"/></svg><div class="chart-points"><button tabindex="0" data-value="42.1" data-label="FIRST QUERY / 2023" style="--x:16%;--y:73%"></button><button tabindex="0" data-value="68.8" data-label="DEEP LEARNING / 2024" style="--x:39%;--y:54%"></button><button tabindex="0" data-value="81.3" data-label="SQL OPTIMISATION / 2025" style="--x:67%;--y:28%"></button><button tabindex="0" data-value="94.7" data-label="VISION / 2026" style="--x:91%;--y:13%"></button></div>
+        <div class="chart-years"><span>2023 / SIGNAL</span><span>2024 / MODEL</span><span>2025 / SCALE</span><span>2026 / VISION</span></div>
+      </div>
+    </section>
+
+    <section id="contact" class="node contact-node">
+      <div class="section-head"><span class="node-number">04</span><span class="line"></span><span>UPLINK TERMINAL</span><span class="status">CHANNEL OPEN</span></div>
+      <div class="contact-layout"><div><p class="kicker">Protocole de contact</p><h2>Envoyez<br>un <em>signal.</em></h2><p class="section-intro">Une idée étrange, une donnée indomptable ou juste l'envie de construire quelque chose de différent.</p><a class="contact-mail" href="mailto:ely.mouthon@gmail.com">ely.mouthon@gmail.com ↗</a></div>
+        <form class="terminal-form" action="mailto:ely.mouthon@gmail.com" method="post" enctype="text/plain"><div class="terminal-bar"><span></span><span></span><span></span><b>UPLINK / MESSAGE</b></div><label><span>01 / IDENT</span><input name="name" required placeholder="votre_nom"></label><label><span>02 / FREQUENCY</span><input name="email" type="email" required placeholder="votre@email.com"></label><label><span>03 / PAYLOAD</span><textarea name="message" required placeholder="décrivez votre anomalie..."></textarea></label><button class="button button-acid" type="submit">TRANSMIT SIGNAL <span>↗</span></button><small>Votre message sera encodé puis transmis.</small></form>
+      </div>
+    </section>
+  </main>
+  <footer><span>© ELY MOUTHON / DATA IS ALIVE</span><span>MADE WITH CURIOSITY + PRECISION</span></footer>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
