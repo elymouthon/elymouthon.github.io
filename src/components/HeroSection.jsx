@@ -20,9 +20,9 @@ export default function HeroSection() {
       <div className="hero__content">
         <p className="eyebrow">Profil / Data &amp; modèles</p>
         <h1 id="hero-title">
-          Nature is the
-          <em>ultimate</em>
-          algorithm.
+          NATURE IS THE
+          <em>ULTIMATE</em>
+          ALGORITHM.
         </h1>
         <p className="hero__subtitle">Étudiant en Data &amp; Explorateur de modèles.</p>
         <p className="hero__lead">

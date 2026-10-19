@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
 
+/* Global design tokens and document defaults. */
 :root {
   color: #e8efe4;
   background: #050505;
@@ -22,6 +23,7 @@ body {
   background: #050505;
 }
 
+/* Shared positioning context for the full-screen scene and HTML overlay. */
 .app-shell {
   position: relative;
   min-height: 100svh;
@@ -42,6 +44,7 @@ a {
   background: transparent;
 }
 
+/* The canvas stays behind the interface and covers the viewport. */
 .scene3d {
   position: absolute;
   inset: 0;
@@ -58,6 +61,7 @@ a {
     linear-gradient(0deg, rgba(5, 5, 5, 0.84), transparent 48%);
 }
 
+/* Subtle scanline treatment applied only to the visual layer. */
 .hero::after {
   content: '';
   position: absolute;
@@ -72,6 +76,7 @@ a {
   );
 }
 
+/* All interface layers sit above the canvas. */
 .hero__nav,
 .hero__coordinates,
 .hero__content,
@@ -166,6 +171,7 @@ a {
   transform: translateY(-43%);
 }
 
+/* Readable HTML subtitle required by the hero content specification. */
 .hero__subtitle {
   margin: 1.25rem 0 0;
   color: #d1ddd0;
