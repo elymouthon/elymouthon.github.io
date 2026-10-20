@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ely Mouthon — Portfolio Data, analyse et visualisation.">
+    <title>ELY / Data Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script type="module" src="/script.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Retour à l'accueil">
+        <span class="brand-mark">EM</span>
+        <strong>ELY<span>.</span></strong>
+      </a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="#about">À propos</a>
+        <a href="#projects">Projets</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="availability"><span></span> Disponible pour un projet</p>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+    </header>
+
+    <main>
+      <section id="home" class="hero section-shell" aria-labelledby="hero-title">
+        <div class="section-label">00 / introduction</div>
+        <div class="hero-content">
+          <p class="eyebrow">Portfolio / Data &amp; modèles</p>
+          <h1 id="hero-title">Nature is the <em>ultimate</em> algorithm.</h1>
+          <p class="hero-summary">
+            Je transforme des données complexes en outils lisibles, utiles et
+            capables d'aider les équipes à prendre de meilleures décisions.
+          </p>
+          <a class="button-link" href="#projects">Découvrir les projets <span>↓</span></a>
+        </div>
+        <div class="hero-meta">
+          <span>Étudiant Data</span>
+          <span>Niort / France</span>
+          <strong>2026</strong>
+        </div>
+        <p class="scroll-note"><span></span> Faire défiler pour explorer</p>
+      </section>
+
+      <section id="about" class="about section-shell" aria-labelledby="about-title">
+        <div class="section-label">01 / à propos</div>
+        <div class="split-layout">
+          <div class="section-introduction">
+            <p class="eyebrow">Le mycélium / une approche transversale</p>
+            <h2 id="about-title">Relier les signaux pour <em>comprendre.</em></h2>
+            <p>
+              Je m'intéresse à ce qui se passe entre la donnée brute et la
+              décision. Mon travail mélange programmation, statistiques,
+              visualisation et curiosité de terrain.
+            </p>
+          </div>
+          <div class="skills-panel">
+            <p class="panel-label">Compétences principales</p>
+            <ul class="skills-list">
+              <li><span>01</span><strong>Python</strong><small>Analyse / automatisation</small></li>
+              <li><span>02</span><strong>SQL</strong><small>Modélisation / requêtes</small></li>
+              <li><span>03</span><strong>Machine Learning</strong><small>Régression / prédiction</small></li>
+              <li><span>04</span><strong>Data Visualisation</strong><small>Power BI / R Shiny</small></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects section-shell" aria-labelledby="projects-title">
+        <div class="section-label">02 / projets</div>
+        <div class="section-heading">
+          <p class="eyebrow">Les monolithes / travaux sélectionnés</p>
+          <h2 id="projects-title">Donner une forme claire aux <em>données.</em></h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-header"><span>01 / Base de données</span><span>2024</span></div>
+            <h3>Coopérative de sel marin</h3>
+            <p>Conception d'une base SQL pour gérer les entrées, traitements et ventes de gros sel et de fleur de sel.</p>
+            <footer><span>Python / SQL</span><strong>Data architecture</strong></footer>
+          </article>
+          <article class="project-card project-card--featured">
+            <div class="project-header"><span>02 / Reporting</span><span>2025</span></div>
+            <h3>Mesurer la pauvreté en France</h3>
+            <p>Application interactive de suivi-évaluation à partir de données INSEE et d'une analyse multivariée.</p>
+            <footer><span>R / R Shiny / INSEE</span><strong>Data storytelling</strong></footer>
+          </article>
+          <article class="project-card">
+            <div class="project-header"><span>03 / Analyse spatiale</span><span>2025</span></div>
+            <h3>Implantation stratégique</h3>
+            <p>Étude géographique pour identifier les zones à fort potentiel d'implantation de restaurants.</p>
+            <footer><span>QGIS / Géospatial</span><strong>Spatial analysis</strong></footer>
+          </article>
+        </div>
+      </section>
+
+      <section id="altimetry" class="highlights section-shell" aria-labelledby="highlights-title">
+        <div class="section-label">03 / bilan</div>
+        <div class="split-layout">
+          <div class="section-introduction">
+            <p class="eyebrow">L'altimétrie / points forts</p>
+            <h2 id="highlights-title">Prendre de la <em>hauteur.</em></h2>
+            <p>
+              Les projets m'ont appris à passer du problème flou à une
+              réponse structurée, puis à la rendre compréhensible.
+            </p>
+          </div>
+          <ol class="timeline">
+            <li><span>01</span><div><strong>Construire</strong><p>Des bases de données solides et documentées.</p></div></li>
+            <li><span>02</span><div><strong>Analyser</strong><p>Des modèles qui répondent à une vraie question.</p></div></li>
+            <li><span>03</span><div><strong>Transmettre</strong><p>Des résultats lisibles pour tous les publics.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="contact" class="contact section-shell" aria-labelledby="contact-title">
+        <div class="section-label">04 / contact</div>
+        <div class="contact-layout">
+          <div class="section-introduction">
+            <p class="eyebrow">Le signal / fréquence ouverte</p>
+            <h2 id="contact-title">Construisons la <em>suite.</em></h2>
+            <p>Une question, un projet data ou une équipe à rejoindre ? Écrivez-moi.</p>
+            <a class="email-link" href="mailto:hello@elymouthon.fr">hello@elymouthon.fr <span>↗</span></a>
+          </div>
+          <form class="contact-form" id="contact-form">
+            <p class="form-status" aria-live="polite">&gt; transmission.init()</p>
+            <label for="name">Nom</label>
+            <input id="name" name="name" type="text" placeholder="Votre nom" required>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="vous@exemple.com" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Votre message" required></textarea>
+            <button type="submit">Envoyer le signal <span>↗</span></button>
+          </form>
+        </div>
+        <footer class="site-footer">
+          <span>© 2026 Ely Mouthon</span>
+          <span>Portfolio Data / Niort, France</span>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
