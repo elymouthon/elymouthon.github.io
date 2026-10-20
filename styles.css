@@ -11,6 +11,7 @@
   --line: rgba(193, 235, 201, 0.2);
   --accent: #00f566;
   --mono: 'DM Mono', monospace;
+  --forest: #0b3c2a;
 }
 
 * {
@@ -24,9 +25,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    radial-gradient(circle at 80% 15%, rgba(0, 100, 49, 0.16), transparent 28rem),
-    var(--background);
+  background: var(--background);
 }
 
 body::before {
@@ -38,6 +37,50 @@ body::before {
   opacity: 0.17;
   background-image: linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: 100% 4px;
+}
+
+.mountain-backdrop {
+  position: fixed;
+  z-index: -3;
+  inset: -4%;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(2, 10, 7, 0.72), rgba(2, 12, 8, 0.94)),
+    linear-gradient(115deg, rgba(0, 31, 20, 0.82), rgba(4, 6, 5, 0.9)),
+    url('/assets/images/mountain-fog.webp') center / cover no-repeat;
+  filter: saturate(0.7) contrast(1.15);
+  transform: scale(1.04);
+  transform-origin: center;
+}
+
+.mountain-backdrop::before,
+.mountain-backdrop::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+}
+
+.mountain-backdrop::before {
+  background:
+    radial-gradient(ellipse at 25% 58%, rgba(21, 96, 65, 0.28), transparent 32%),
+    radial-gradient(ellipse at 78% 72%, rgba(1, 44, 28, 0.38), transparent 38%);
+  mix-blend-mode: screen;
+}
+
+.mountain-backdrop::after {
+  background: linear-gradient(90deg, rgba(2, 8, 6, 0.64), transparent 48%, rgba(2, 8, 6, 0.45));
+}
+
+#mist-canvas {
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.9;
 }
 
 a {
@@ -142,6 +185,8 @@ textarea {
   min-height: 100svh;
   padding: 9rem clamp(1.25rem, 8vw, 8rem) 6rem;
   overflow: hidden;
+  filter: blur(var(--section-blur, 0px));
+  will-change: opacity, filter;
 }
 
 .section-label {
@@ -186,6 +231,28 @@ h2 {
   font-weight: 400;
   letter-spacing: -0.075em;
   line-height: 0.88;
+  perspective: 900px;
+}
+
+[data-split] {
+  overflow: hidden;
+}
+
+.split-line {
+  display: block;
+}
+
+.split-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(115%) rotateX(-55deg);
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+}
+
+.split-line em {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 h1 {
@@ -369,6 +436,18 @@ h2 {
 
 .project-card:hover {
   transform: translateY(-0.5rem);
+}
+
+.project-card,
+.skills-panel,
+.timeline,
+.contact-form,
+.hero-summary,
+.section-introduction > p:last-child,
+.eyebrow,
+.button-link,
+.email-link {
+  will-change: transform, opacity, filter;
 }
 
 .project-header,
