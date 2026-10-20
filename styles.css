@@ -47,7 +47,7 @@ body::before {
   background:
     linear-gradient(180deg, rgba(2, 10, 7, 0.72), rgba(2, 12, 8, 0.94)),
     linear-gradient(115deg, rgba(0, 31, 20, 0.82), rgba(4, 6, 5, 0.9)),
-    url('/assets/images/mountain-fog.webp') center / cover no-repeat;
+    url('/assets/images/mountain-fog.svg') center / cover no-repeat;
   filter: saturate(0.7) contrast(1.15);
   transform: scale(1.04);
   transform-origin: center;
@@ -81,6 +81,17 @@ body::before {
   pointer-events: none;
   mix-blend-mode: screen;
   opacity: 0.9;
+}
+
+#webgl-canvas {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.72;
 }
 
 a {
@@ -186,7 +197,40 @@ textarea {
   padding: 9rem clamp(1.25rem, 8vw, 8rem) 6rem;
   overflow: hidden;
   filter: blur(var(--section-blur, 0px));
-  will-change: opacity, filter;
+  transform: perspective(1200px) scale(var(--section-scale, 1)) skewY(var(--section-skew, 0deg));
+  transform-origin: 50% 0;
+  will-change: opacity, filter, transform;
+  transition: opacity 700ms ease, filter 700ms ease;
+}
+
+.section-shell::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+  opacity: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 3px,
+    rgba(0, 245, 102, 0.13) 4px,
+    transparent 5px
+  );
+  mix-blend-mode: screen;
+  transform: translateX(-8%);
+}
+
+.section-shell.is-active::after {
+  animation: scan-glitch 900ms steps(2, end) both;
+}
+
+@keyframes scan-glitch {
+  0% { opacity: 0; transform: translateX(-8%) scaleX(1); }
+  12% { opacity: 0.8; transform: translateX(3%) scaleX(1.04); }
+  24% { opacity: 0.15; transform: translateX(-2%) scaleX(0.98); }
+  48% { opacity: 0.55; transform: translateX(1%) scaleX(1.02); }
+  100% { opacity: 0; transform: translateX(0) scaleX(1); }
 }
 
 .section-label {
@@ -651,5 +695,14 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  #webgl-canvas {
+    display: none;
+  }
+
+  .section-shell {
+    filter: none;
+    transform: none;
   }
 }

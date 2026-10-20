@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import * as THREE from 'three';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -7,9 +8,15 @@ const menuButton = document.querySelector('.menu-button');
 const siteNav = document.querySelector('.site-nav');
 const contactForm = document.querySelector('#contact-form');
 const canvas = document.querySelector('#mist-canvas');
+const webglCanvas = document.querySelector('#webgl-canvas');
 const context = canvas?.getContext('2d', { alpha: true });
 const pointer = { x: 0.5, y: 0.5, targetX: 0.5, targetY: 0.5 };
 const motes = [];
+let webglScene;
+let webglCamera;
+let webglRenderer;
+let webglParticles;
+let webglAnimationFrame;
 let width = 0;
 let height = 0;
 let pixelRatio = 1;
@@ -77,6 +84,71 @@ function drawMist(time) {
     if (mote.y < -20) {
       mote.y = height + 20;
       mote.x = Math.random() * width;
+    }
+
+    function initWebGL() {
+      if (!webglCanvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      try {
+        webglScene = new THREE.Scene();
+        webglScene.fog = new THREE.FogExp2(0x04120d, 0.055);
+        webglCamera = new THREE.PerspectiveCamera(58, window.innerWidth / window.innerHeight, 0.1, 100);
+        webglCamera.position.z = 8;
+        webglRenderer = new THREE.WebGLRenderer({ canvas: webglCanvas, alpha: true, antialias: true });
+        webglRenderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.8));
+        webglRenderer.setSize(window.innerWidth, window.innerHeight);
+
+        const positions = new Float32Array(720 * 3);
+        const colors = new Float32Array(720 * 3);
+        const color = new THREE.Color();
+
+        for (let index = 0; index < 720; index += 1) {
+          const distance = Math.random() * 12 - 4;
+          positions[index * 3] = (Math.random() - 0.5) * 15;
+          positions[index * 3 + 1] = (Math.random() - 0.5) * 9;
+          positions[index * 3 + 2] = distance;
+          color.setHSL(0.39 + Math.random() * 0.05, 0.55, 0.18 + Math.random() * 0.2);
+          colors[index * 3] = color.r;
+          colors[index * 3 + 1] = color.g;
+          colors[index * 3 + 2] = color.b;
+        }
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        const material = new THREE.PointsMaterial({
+          size: 0.075,
+          transparent: true,
+          opacity: 0.72,
+          vertexColors: true,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false,
+        });
+        webglParticles = new THREE.Points(geometry, material);
+        webglScene.add(webglParticles);
+
+        const animateWebGL = (time) => {
+          if (!webglRenderer || !webglScene || !webglCamera || !webglParticles) return;
+          webglParticles.rotation.y = pointer.x * 0.22 + time * 0.000025;
+          webglParticles.rotation.x = pointer.y * 0.1;
+          webglParticles.position.x += (pointer.x - 0.5) * 0.002;
+          webglParticles.position.y += (0.5 - pointer.y) * 0.0015;
+          webglRenderer.render(webglScene, webglCamera);
+          webglAnimationFrame = requestAnimationFrame(animateWebGL);
+        };
+
+        webglAnimationFrame = requestAnimationFrame(animateWebGL);
+      } catch (error) {
+        webglCanvas.hidden = true;
+        console.warn('WebGL mist layer unavailable; using the Canvas fallback.', error);
+      }
+    }
+
+    function resizeWebGL() {
+      if (!webglRenderer || !webglCamera) return;
+      webglCamera.aspect = window.innerWidth / window.innerHeight;
+      webglCamera.updateProjectionMatrix();
+      webglRenderer.setSize(window.innerWidth, window.innerHeight);
     }
 
     const offsetX = (pointer.x - 0.5) * (mote.y / height) * -46;
@@ -169,14 +241,28 @@ function initScrollTransitions() {
     );
 
     gsap.to(section, {
-      '--section-blur': '8px',
-      opacity: 0.45,
+      '--section-blur': '11px',
+      '--section-skew': index % 2 ? '-1.5deg' : '1.5deg',
+      '--section-scale': 0.88,
+      opacity: 0.18,
+      yPercent: -10,
+      rotateX: index % 2 ? 3 : -3,
       scrollTrigger: {
         trigger: section,
         start: 'top top',
         end: 'bottom top',
         scrub: true,
       },
+    });
+
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top 55%',
+      end: 'bottom 45%',
+      onEnter: () => section.classList.add('is-active'),
+      onEnterBack: () => section.classList.add('is-active'),
+      onLeave: () => section.classList.remove('is-active'),
+      onLeaveBack: () => section.classList.remove('is-active'),
     });
   });
 
@@ -200,6 +286,7 @@ window.addEventListener('pointermove', (event) => {
 
 window.addEventListener('resize', () => {
   resizeCanvas();
+  resizeWebGL();
   createMotes();
   ScrollTrigger.refresh();
 }, { passive: true });
@@ -207,4 +294,5 @@ window.addEventListener('resize', () => {
 resizeCanvas();
 createMotes();
 requestAnimationFrame(drawMist);
+initWebGL();
 initScrollTransitions();
