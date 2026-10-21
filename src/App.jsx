@@ -53,8 +53,10 @@ const copy = {
 function App() {
   const [language, setLanguage] = useState('fr');
   const [activeSection, setActiveSection] = useState('ecosystem');
+  const [search, setSearch] = useState('');
   const mainRef = useRef(null);
   const text = copy[language];
+  const searchItems = navigation.filter(([, label]) => label.toLowerCase().includes(search.toLowerCase()));
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -130,7 +132,13 @@ function App() {
       <div className="scroll-progress" aria-hidden="true" />
 
       <header className="site-header">
-        <a className="brand" href="#ecosystem">Ely<span>Mouthon</span></a>
+        <a className="brand" href="#ecosystem" aria-label="Retour à l'accueil"><span className="brand-mark">EM</span><span className="brand-name">Ely Mouthon</span></a>
+        <div className="search-wrap">
+          <span className="search-icon" aria-hidden="true">⌕</span>
+          <input value={search} onChange={(event) => setSearch(event.target.value)} type="search" placeholder="Rechercher dans le portfolio..." aria-label="Rechercher dans le portfolio" />
+          <kbd>⌘ K</kbd>
+          {search && <div className="search-results">{searchItems.length ? searchItems.map(([id, label]) => <a key={id} href={`#${id}`} onClick={() => setSearch('')}>{label}<span>↗</span></a>) : <span className="search-empty">Aucun signal trouvé</span>}</div>}
+        </div>
         <div className="header-actions">
           <button className="language-toggle" type="button" onClick={() => setLanguage(language === 'fr' ? 'en' : 'fr')} aria-label="Changer de langue">
             <strong className={language === 'fr' ? 'is-selected' : ''}>FR</strong><i>/</i><strong className={language === 'en' ? 'is-selected' : ''}>EN</strong>
@@ -140,6 +148,7 @@ function App() {
       </header>
 
       <nav className="dock" aria-label="Navigation principale">
+        <span className="dock-status"><i /> LIVE / 2026</span>
         {navigation.map(([id, label]) => <a key={id} className={`dock-link ${activeSection === id ? 'is-active' : ''}`} href={`#${id}`}>{label}</a>)}
       </nav>
 
@@ -147,22 +156,23 @@ function App() {
         <section id="ecosystem" className="hero section">
           <div className="hero-copy">
             <p className="eyebrow hero-reveal"><span className="status-dot" />{text.role}</p>
+            <p className="hero-kicker hero-reveal">DATA / DESIGN / CURIOSITY</p>
             <h1 className="hero-title hero-reveal">Ely<br /><em>Mouthon</em></h1>
             <p className="hero-lead hero-reveal">{text.intro}</p>
             <div className="hero-actions hero-reveal"><a className="button button--dark button--large" href="#projects">{text.projects} <span>→</span></a><a className="button button--outline button--large" href="#contact">{text.cv}</a></div>
             <p className="hero-note hero-reveal">Disponible pour de nouvelles explorations <span>↗</span></p>
           </div>
-          <div className="hero-orbit" aria-hidden="true"><div className="orbit-ring orbit-ring--outer" /><div className="orbit-ring orbit-ring--inner" /><div className="orbit-core"><span>DATA</span><strong>03</strong></div><span className="orbit-label orbit-label--top">signal / 01</span><span className="orbit-label orbit-label--bottom">46°19′N · 0°28′W</span></div>
+          <div className="hero-orbit" aria-hidden="true"><div className="orbit-ring orbit-ring--outer" /><div className="orbit-ring orbit-ring--inner" /><div className="orbit-grid" /><div className="orbit-core"><span>DATA LAB</span><strong>03</strong><small>explorer</small></div><span className="orbit-label orbit-label--top">signal / 01</span><span className="orbit-label orbit-label--bottom">46°19′N · 0°28′W</span><span className="orbit-label orbit-label--side">scroll to observe</span></div>
         </section>
 
         <section id="about" className="section content-section">
           <div className="section-heading"><span className="section-index">01</span><h2 className="section-title reveal">{text.about}</h2></div>
-          <div className="about-grid"><p className="large-copy reveal">{text.aboutText}</p><div className="skill-card reveal"><p className="card-label">Field notes / 04</p>{['Python & SQL', 'Statistiques', 'Machine Learning', 'Datavisualisation'].map((skill, index) => <div className="skill-row" key={skill}><span>0{index + 1}</span><strong>{skill}</strong><i>↗</i></div>)}</div></div>
+          <div className="about-grid"><p className="large-copy reveal">{text.aboutText}</p><div className="skill-card reveal"><p className="card-label">Stack / 04</p>{['Python & SQL', 'Statistiques', 'Machine Learning', 'Datavisualisation'].map((skill, index) => <div className="skill-row" key={skill}><span>0{index + 1}</span><strong>{skill}</strong><i>↗</i></div>)}</div></div>
         </section>
 
         <section id="experience" className="section content-section">
           <div className="section-heading"><span className="section-index">02</span><h2 className="section-title reveal">{text.experience}</h2></div>
-          <div className="experience-card reveal"><div><p className="card-label">2024 — 2027 / Niort</p><h3>Construire dans la donnée</h3></div><p>{text.experienceText}</p><span className="card-arrow">↗</span></div>
+          <div className="experience-card reveal"><div><p className="card-label">2024 — 2027 / Niort</p><h3>Construire dans la donnée</h3></div><p>{text.experienceText}</p><span className="card-arrow">↗</span><div className="experience-scan" aria-hidden="true"><span /><span /><span /><span /></div></div>
         </section>
 
         <section id="projects" className="section content-section">
@@ -178,7 +188,7 @@ function App() {
         <section id="contact" className="section content-section contact-section">
           <div className="section-heading"><span className="section-index">05</span><h2 className="section-title reveal">{text.contact}</h2></div>
           <div className="contact-card reveal"><p>{text.contactText}</p><a className="button button--dark button--large" href="mailto:hello@elymouthon.fr">hello@elymouthon.fr <span>↗</span></a></div>
-          <footer><span>© 2026 Ely Mouthon</span><span>Data wilderness / France</span></footer>
+          <footer><span>© 2026 Ely Mouthon</span><span>Made with intent / France</span></footer>
         </section>
       </main>
     </div>
