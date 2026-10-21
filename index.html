@@ -1,102 +1,14 @@
 <!doctype html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ely Mouthon — Portfolio data, modèles et récits visuels.">
-    <title>ELY / Into the quiet</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
-    <script type="module" src="/script.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#030504" />
+    <meta name="description" content="Portfolio data immersif — The Abyssal Forest." />
+    <title>The Abyssal Forest — Data Wilderness</title>
   </head>
   <body>
-    <div class="mountain-backdrop" aria-hidden="true"></div>
-    <div class="atmosphere" aria-hidden="true"></div>
-    <canvas id="mist-canvas" aria-hidden="true"></canvas>
-    <div class="grain" aria-hidden="true"></div>
-
-    <header class="site-header">
-      <a class="brand" href="#home" aria-label="Retour à l'accueil"><span>EM</span><strong>ELY<span>.</span></strong></a>
-      <nav class="site-nav" aria-label="Navigation principale">
-        <a href="#about">01 / À propos</a>
-        <a href="#projects">02 / Projets</a>
-        <a href="#bilan">03 / Bilan</a>
-        <a href="#contact">04 / Contact</a>
-      </nav>
-      <p class="availability"><i></i> Signal ouvert · 2026</p>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    </header>
-
-    <div class="progress-line" aria-hidden="true"><span></span></div>
-    <main>
-      <section id="home" class="scene scene--hero" aria-labelledby="hero-title">
-        <div class="scene-index">00 <span>/</span> accueil</div>
-        <div class="hero-copy">
-          <p class="kicker reveal-up">Portfolio / Data &amp; modèles</p>
-          <h1 id="hero-title" data-split>Into the <em>quiet.</em></h1>
-          <p class="hero-deck reveal-up">Je cherche le signal dans le bruit. Des données brutes aux décisions justes, je construis des outils qui rendent le complexe sensible.</p>
-          <a class="text-link reveal-up" href="#about">Entrer dans la forêt <span>↓</span></a>
-        </div>
-        <div class="hero-coordinate reveal-up"><span>46°19′N</span><span>·</span><span>0°28′W</span></div>
-        <p class="scroll-cue reveal-up"><i></i> Faites défiler <span>scroll to explore</span></p>
-      </section>
-
-      <section id="about" class="scene scene--about" aria-labelledby="about-title">
-        <div class="scene-index">01 <span>/</span> à propos</div>
-        <div class="scene-grid">
-          <div class="scene-copy">
-            <p class="kicker reveal-up">La lisière / une approche transversale</p>
-            <h2 id="about-title" data-split>Relier les signaux pour <em>comprendre.</em></h2>
-            <p class="body-copy reveal-up">Entre la donnée et la décision, il existe un espace à explorer. Je le cartographie avec du code, des statistiques et une attention particulière à ce que l'on ne voit pas au premier regard.</p>
-          </div>
-          <div class="field-notes reveal-up">
-            <p class="note-title">Field notes <span>01—04</span></p>
-            <ol>
-              <li><span>01</span><strong>Observer</strong><small>Les traces avant les tendances</small></li>
-              <li><span>02</span><strong>Structurer</strong><small>Le chaos en système lisible</small></li>
-              <li><span>03</span><strong>Modéliser</strong><small>Une réponse à la vraie question</small></li>
-              <li><span>04</span><strong>Transmettre</strong><small>Le résultat, sans brouillard</small></li>
-            </ol>
-          </div>
-        </div>
-        <span class="side-word">MYCELIUM</span>
-      </section>
-
-      <section id="projects" class="scene scene--projects" aria-labelledby="projects-title">
-        <div class="scene-index">02 <span>/</span> projets</div>
-        <div class="projects-intro">
-          <p class="kicker reveal-up">Strates / travaux sélectionnés</p>
-          <h2 id="projects-title" data-split>Donner une forme claire aux <em>données.</em></h2>
-        </div>
-        <div class="project-list">
-          <article class="project-row reveal-up"><span class="project-no">01</span><div><p>Base de données · Python / SQL</p><h3>La coopérative de sel marin</h3></div><span class="project-arrow">↗</span></article>
-          <article class="project-row reveal-up"><span class="project-no">02</span><div><p>Reporting · R / INSEE</p><h3>Mesurer la pauvreté en France</h3></div><span class="project-arrow">↗</span></article>
-          <article class="project-row reveal-up"><span class="project-no">03</span><div><p>Analyse spatiale · QGIS</p><h3>Implantation stratégique</h3></div><span class="project-arrow">↗</span></article>
-        </div>
-      </section>
-
-      <section id="bilan" class="scene scene--bilan" aria-labelledby="bilan-title">
-        <div class="scene-index">03 <span>/</span> bilan</div>
-        <div class="bilan-layout">
-          <div>
-            <p class="kicker reveal-up">Altitude / ce qui reste</p>
-            <h2 id="bilan-title" data-split>Prendre de la <em>hauteur.</em></h2>
-          </div>
-          <div class="bilan-quote reveal-up"><span>“</span><p>Un bon modèle ne parle pas plus fort. Il écoute mieux.</p><small>— carnet de terrain, 2026</small></div>
-        </div>
-        <div class="metrics reveal-up"><div><strong>03</strong><span>questions<br>transformées</span></div><div><strong>∞</strong><span>curiosité<br>active</span></div><div><strong>01</strong><span>règle<br>simple</span></div></div>
-      </section>
-
-      <section id="contact" class="scene scene--contact" aria-labelledby="contact-title">
-        <div class="scene-index">04 <span>/</span> contact</div>
-        <div class="contact-layout">
-          <div class="scene-copy"><p class="kicker reveal-up">Le signal / fréquence ouverte</p><h2 id="contact-title" data-split>Construisons la <em>suite.</em></h2><p class="body-copy reveal-up">Un projet data, une question ou simplement envie de parler terrain ? La brume est ouverte.</p><a class="email-link reveal-up" href="mailto:hello@elymouthon.fr">hello@elymouthon.fr <span>↗</span></a></div>
-          <form class="contact-form reveal-up" id="contact-form"><p class="form-status">&gt; transmission.init()</p><label for="name">Nom</label><input id="name" name="name" type="text" placeholder="Votre nom" required><label for="email">Email</label><input id="email" name="email" type="email" placeholder="vous@exemple.com" required><label for="message">Message</label><textarea id="message" name="message" rows="3" placeholder="Votre message" required></textarea><button type="submit">Envoyer le signal <span>↗</span></button></form>
-        </div>
-        <footer class="site-footer"><span>© 2026 Ely Mouthon</span><span>Niort, France · 46°19′N</span></footer>
-      </section>
-    </main>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
