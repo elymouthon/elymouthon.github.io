@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -15,6 +15,8 @@ function terrainHeight(x, y) {
 
 function FoggyMountain() {
   const mountainRef = useRef(null);
+  const pointer = useRef({ x: 0.5, y: 0.5 });
+  const pointerTarget = useRef({ x: 0.5, y: 0.5 });
   const geometry = useMemo(() => {
     const plane = new THREE.PlaneGeometry(22, 22, 110, 110);
     const positions = plane.attributes.position;
@@ -25,35 +27,63 @@ function FoggyMountain() {
       positions.setZ(index, terrainHeight(x, y));
     }
 
-    positions.needsUpdate = true;
+    plane.userData.baseHeights = Float32Array.from({ length: positions.count }, (_, index) => positions.getZ(index));
     plane.computeVertexNormals();
     return plane;
   }, []);
 
+  useEffect(() => {
+    const updatePointer = (event) => {
+      pointerTarget.current.x = event.clientX / window.innerWidth;
+      pointerTarget.current.y = event.clientY / window.innerHeight;
+    };
+
+    window.addEventListener('pointermove', updatePointer, { passive: true });
+    return () => window.removeEventListener('pointermove', updatePointer);
+  }, []);
+
   useFrame(({ camera, clock }) => {
     const time = clock.getElapsedTime();
-    camera.position.x = Math.sin(time * 0.16) * 0.35;
-    camera.position.y = 2.8 + Math.sin(time * 0.22) * 0.12;
+    pointer.current.x = THREE.MathUtils.lerp(pointer.current.x, pointerTarget.current.x, 0.045);
+    pointer.current.y = THREE.MathUtils.lerp(pointer.current.y, pointerTarget.current.y, 0.045);
+    const forceX = (pointer.current.x - 0.5) * 2;
+    const forceY = (0.5 - pointer.current.y) * 2;
+
+    camera.position.x = Math.sin(time * 0.16) * 0.18 + forceX * 0.28;
+    camera.position.y = 2.8 + Math.sin(time * 0.22) * 0.08 + forceY * 0.18;
     camera.lookAt(0, 0.1, 0);
 
     if (mountainRef.current) {
-      mountainRef.current.rotation.z = Math.sin(time * 0.08) * 0.012;
+      const positions = mountainRef.current.geometry.attributes.position;
+      const baseHeights = mountainRef.current.geometry.userData.baseHeights;
+
+      for (let index = 0; index < positions.count; index += 1) {
+        const x = positions.getX(index);
+        const y = positions.getY(index);
+        const distance = Math.hypot(x - forceX * 4.5, y - forceY * 4.5);
+        const influence = Math.exp(-(distance * distance) * 0.12);
+        const ripple = Math.sin(distance * 2.5 - time * 2.2) * 0.12 * influence;
+        positions.setZ(index, baseHeights[index] + influence * (0.42 + forceY * 0.2) + ripple);
+      }
+      positions.needsUpdate = true;
+      mountainRef.current.geometry.computeVertexNormals();
+      mountainRef.current.rotation.z = forceX * 0.018 + Math.sin(time * 0.08) * 0.008;
     }
   });
 
   return (
     <>
-      <color attach="background" args={['#101318']} />
-      <fog attach="fog" args={['#101318', 5, 15]} />
-      <ambientLight intensity={0.25} color="#d6ff43" />
-      <directionalLight position={[-4, 7, 3]} intensity={1.4} color="#73e6dd" />
+      <color attach="background" args={['#17151b']} />
+      <fog attach="fog" args={['#17151b', 5, 15]} />
+      <ambientLight intensity={0.3} color="#ffb38a" />
+      <directionalLight position={[-4, 7, 3]} intensity={1.5} color="#b6a1ff" />
       <mesh
         ref={mountainRef}
         geometry={geometry}
         rotation={[-Math.PI / 2.25, 0, 0]}
         position={[0, -1.25, -2.2]}
       >
-        <meshBasicMaterial color="#d6ff43" wireframe transparent opacity={0.72} />
+        <meshBasicMaterial color="#ff8a5b" wireframe transparent opacity={0.78} />
       </mesh>
     </>
   );

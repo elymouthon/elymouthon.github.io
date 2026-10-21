@@ -96,19 +96,10 @@ function App() {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       document.documentElement.style.setProperty('--scroll-progress', `${(window.scrollY / scrollable) * 100}%`);
     };
-    const cursor = document.querySelector('.cursor-glow');
-    const updateCursor = (event) => {
-      if (cursor) {
-        cursor.style.left = `${event.clientX}px`;
-        cursor.style.top = `${event.clientY}px`;
-      }
-    };
     window.addEventListener('scroll', updateProgress, { passive: true });
-    window.addEventListener('pointermove', updateCursor, { passive: true });
     updateProgress();
     return () => {
       window.removeEventListener('scroll', updateProgress);
-      window.removeEventListener('pointermove', updateCursor);
     };
   }, []);
 
@@ -128,7 +119,6 @@ function App() {
         <div className="grain" />
       </div>
       <div className="canvas-layer" aria-hidden="true"><Canvas camera={{ position: [0, 2.8, 8], fov: 55 }} dpr={[1, 1.5]}><FoggyMountain /></Canvas></div>
-      <div className="cursor-glow" aria-hidden="true" />
       <div className="scroll-progress" aria-hidden="true" />
 
       <header className="site-header">
@@ -160,7 +150,7 @@ function App() {
             <h1 className="hero-title hero-reveal">Ely<br /><em>Mouthon</em></h1>
             <p className="hero-lead hero-reveal">{text.intro}</p>
             <div className="hero-actions hero-reveal"><a className="button button--dark button--large" href="#projects">{text.projects} <span>→</span></a><a className="button button--outline button--large" href="#contact">{text.cv}</a></div>
-            <p className="hero-note hero-reveal">Disponible pour de nouvelles explorations <span>↗</span></p>
+            <p className="hero-note hero-reveal"><span className="hero-note-pulse" />Bouge la souris · le relief réagit <span>↗</span></p>
           </div>
           <div className="hero-orbit" aria-hidden="true"><div className="orbit-ring orbit-ring--outer" /><div className="orbit-ring orbit-ring--inner" /><div className="orbit-grid" /><div className="orbit-core"><span>DATA LAB</span><strong>03</strong><small>explorer</small></div><span className="orbit-label orbit-label--top">signal / 01</span><span className="orbit-label orbit-label--bottom">46°19′N · 0°28′W</span><span className="orbit-label orbit-label--side">scroll to observe</span></div>
         </section>
