@@ -123,6 +123,10 @@ function App() {
 
       <header className="site-header">
         <a className="brand" href="#ecosystem" aria-label="Retour à l'accueil"><span className="brand-mark">EM</span><span className="brand-name">Ely Mouthon</span></a>
+        <nav className="dock" aria-label="Navigation principale">
+          <span className="dock-status"><i /> LIVE / 2026</span>
+          {navigation.map(([id, label]) => <a key={id} className={`dock-link ${activeSection === id ? 'is-active' : ''}`} href={`#${id}`}>{label}</a>)}
+        </nav>
         <div className="search-wrap">
           <span className="search-icon" aria-hidden="true">⌕</span>
           <input value={search} onChange={(event) => setSearch(event.target.value)} type="search" placeholder="Rechercher dans le portfolio..." aria-label="Rechercher dans le portfolio" />
@@ -136,11 +140,6 @@ function App() {
           <a className="button button--dark" href="#contact">{text.send} <span>↗</span></a>
         </div>
       </header>
-
-      <nav className="dock" aria-label="Navigation principale">
-        <span className="dock-status"><i /> LIVE / 2026</span>
-        {navigation.map(([id, label]) => <a key={id} className={`dock-link ${activeSection === id ? 'is-active' : ''}`} href={`#${id}`}>{label}</a>)}
-      </nav>
 
       <main ref={mainRef}>
         <section id="ecosystem" className="hero section">

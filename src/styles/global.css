@@ -56,7 +56,7 @@ button, input { color: inherit; font: inherit; }
 
 .site-header {
   position: fixed; z-index: 60; top: 0; left: 0; right: 0;
-  display: grid; grid-template-columns: 1fr minmax(260px, 430px) 1fr;
+  display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(150px, 215px) auto;
   align-items: center; gap: 1rem; padding: 1.2rem clamp(1rem, 4vw, 4rem);
   background: linear-gradient(#17151b, rgba(23, 21, 27, .2) 80%, transparent);
 }
@@ -91,8 +91,8 @@ button, input { color: inherit; font: inherit; }
 .button--outline:hover { border-color: var(--orange); color: var(--orange); }
 .button--large { padding: .95rem 1.35rem; }
 .dock {
-  position: fixed; z-index: 80; left: 50%; bottom: 1.2rem; display: flex; align-items: center; gap: .2rem;
-  max-width: calc(100vw - 1.5rem); padding: .35rem; overflow-x: auto; transform: translateX(-50%);
+  position: relative; z-index: 80; display: flex; align-items: center; justify-self: start; gap: .2rem;
+  max-width: 100%; padding: .35rem; overflow-x: auto;
   border: 1px solid var(--line); border-radius: 2rem; background: rgba(23, 21, 27, .78);
   box-shadow: 0 20px 60px rgba(0, 0, 0, .35); backdrop-filter: blur(18px); scrollbar-width: none;
 }
@@ -147,9 +147,10 @@ button, input { color: inherit; font: inherit; }
 @keyframes drift-two { 50% { transform: translate(-6vw, 8vh); } }
 @media (max-width: 760px) {
   .site-header { grid-template-columns: 1fr auto; }.search-wrap { display: none; }.header-actions .button { display: none; }
+  .site-header .dock { grid-column: 1 / -1; grid-row: 2; justify-self: stretch; max-width: none; }
   .hero { display: block; padding-top: 9rem; }.hero-orbit { width: min(80vw, 360px); margin-top: 5rem; }.orbit-label--side { display: none; }
   .section { width: min(100% - 2rem, 1180px); }.about-grid, .review-layout { grid-template-columns: 1fr; gap: 2rem; padding-top: 2.5rem; }.experience-card { grid-template-columns: 1fr; gap: .8rem; }.experience-scan { right: 1rem; }
-  .contact-card { display: grid; }.section-title { margin-bottom: 1.6rem; }.dock { bottom: .7rem; }.dock-status { display: none; }footer { display: grid; gap: .4rem; padding-bottom: 5rem; }
+  .contact-card { display: grid; }.section-title { margin-bottom: 1.6rem; }.dock-status { display: none; }footer { display: grid; gap: .4rem; padding-bottom: 5rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
