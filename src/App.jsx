@@ -208,7 +208,7 @@ function App() {
             <div className="hero-actions hero-reveal"><a className="button button--dark button--large" href="#projects">{text.projects} <span>→</span></a><a className="button button--outline button--large" href="#contact">{text.cv}</a></div>
             <p className="hero-note hero-reveal"><span className="hero-note-pulse" />Bouge la souris · le relief réagit <span>↗</span></p>
           </div>
-          <div className="hero-orbit" aria-hidden="true"><div className="orbit-ring orbit-ring--outer" /><div className="orbit-ring orbit-ring--inner" /><div className="orbit-grid" /><div className="orbit-core"><span>DATA LAB</span><strong>03</strong><small>explorer</small></div><span className="orbit-label orbit-label--top">signal / 01</span><span className="orbit-label orbit-label--bottom">46°19′N · 0°28′W</span><span className="orbit-label orbit-label--side">scroll to observe</span></div>
+          <div className="hero-photo-placeholder" aria-hidden="true" />
         </section>
 
         <section id="about" className="section content-section">
