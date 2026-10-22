@@ -1,8 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Canvas } from '@react-three/fiber';
-import FoggyMountain from './components/canvas/FoggyMountain';
+import CinematicBackground from './components/ui/CinematicBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -103,20 +102,7 @@ function App() {
 
   return (
     <div className="site-shell">
-      <div className="bg-canvas" aria-hidden="true">
-        <span className="blob blob--one" />
-        <span className="blob blob--two" />
-        <span className="blob blob--three" />
-        <svg className="contour-lines" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-          <path d="M-40 160C240 60 480 270 790 170s450-30 700 90" />
-          <path d="M-40 350c300-80 520 130 820 40s430-40 700 75" />
-          <path d="M-40 570c270-70 550 120 870 30s390-25 650 65" />
-          <path d="M240-30c100 260-60 480 130 780" />
-          <path d="M1190-30c-50 240 100 470 0 800" />
-        </svg>
-        <div className="grain" />
-      </div>
-      <div className="canvas-layer" aria-hidden="true"><Canvas camera={{ position: [0, 2.8, 8], fov: 55 }} dpr={[1, 1.5]}><FoggyMountain /></Canvas></div>
+      <CinematicBackground />
       <div className="scroll-progress" aria-hidden="true" />
 
       <header className="site-header">
@@ -143,7 +129,6 @@ function App() {
             <div className="hero-actions hero-reveal"><a className="button button--dark button--large" href="#projects">{text.projects} <span>→</span></a><a className="button button--outline button--large" href="#contact">{text.cv}</a></div>
             <p className="hero-note hero-reveal"><span className="hero-note-pulse" />Bouge la souris · le relief réagit <span>↗</span></p>
           </div>
-          <div className="hero-orbit" aria-hidden="true"><div className="orbit-ring orbit-ring--outer" /><div className="orbit-ring orbit-ring--inner" /><div className="orbit-grid" /><div className="orbit-core"><span>DATA LAB</span><strong>03</strong><small>explorer</small></div><span className="orbit-label orbit-label--top">signal / 01</span><span className="orbit-label orbit-label--bottom">46°19′N · 0°28′W</span><span className="orbit-label orbit-label--side">scroll to observe</span></div>
         </section>
 
         <section id="about" className="section content-section">
