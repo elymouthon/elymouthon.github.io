@@ -120,9 +120,7 @@ function App() {
       <div className="scroll-progress" aria-hidden="true" />
 
       <header className="site-header">
-        <a className="brand" href="#ecosystem" aria-label="Retour à l'accueil"><span className="brand-mark">EM</span><span className="brand-name">Ely Mouthon</span></a>
         <nav className="dock" aria-label="Navigation principale">
-          <span className="dock-status"><i /> LIVE / 2026</span>
           {navigation.map(([id, label]) => <a key={id} className={`dock-link ${activeSection === id ? 'is-active' : ''}`} href={`#${id}`}>{label}</a>)}
         </nav>
         <div className="header-actions">

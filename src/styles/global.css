@@ -50,13 +50,10 @@ button, input { color: inherit; font: inherit; }
 
 .site-header {
   position: fixed; z-index: 60; top: 0; left: 0; right: 0;
-  display: grid; grid-template-columns: auto minmax(0, 1fr) auto;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
   align-items: center; gap: 1rem; padding: 1.5rem clamp(1.25rem, 5vw, 5rem);
   background: linear-gradient(var(--background), rgba(247, 244, 234, .88) 72%, transparent);
 }
-.brand { display: inline-flex; align-items: center; gap: .8rem; width: max-content; font-weight: 700; letter-spacing: -.03em; }
-.brand-mark { display: grid; width: 2.35rem; height: 2.35rem; place-items: center; color: var(--background); background: var(--secondary); border-radius: 50% 50% 50% 14%; font-size: .68rem; }
-.brand-name { color: var(--secondary); }
 .header-actions { display: flex; align-items: center; justify-content: flex-end; gap: .8rem; }
 .language-toggle { padding: .4rem .7rem; border: 1px solid var(--line); border-radius: 2rem; background: transparent; cursor: pointer; font-size: .68rem; transition: border-color .3s ease-in-out, color .3s ease-in-out; }
 .language-toggle:hover { border-color: var(--accent); color: var(--secondary); }
@@ -71,8 +68,6 @@ button, input { color: inherit; font: inherit; }
 .button--large { padding: 1rem 1.45rem; }
 .dock { position: relative; z-index: 80; display: flex; align-items: center; justify-self: center; gap: .2rem; max-width: 100%; padding: .4rem; overflow-x: auto; border: 1px solid var(--line); border-radius: 2rem; background: rgba(247, 244, 234, .88); box-shadow: var(--shadow); backdrop-filter: blur(18px); scrollbar-width: none; }
 .dock::-webkit-scrollbar { display: none; }
-.dock-status { display: flex; align-items: center; gap: .4rem; padding: .6rem .8rem; color: var(--secondary); font-size: .58rem; white-space: nowrap; }
-.dock-status i { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
 .dock-link { padding: .6rem .8rem; color: var(--muted); border-radius: 2rem; font-size: .7rem; white-space: nowrap; transition: color .3s ease-in-out, background .3s ease-in-out; }
 .dock-link:hover { color: var(--secondary); }
 .dock-link.is-active { color: var(--background); background: var(--secondary); }
@@ -126,7 +121,7 @@ button, input { color: inherit; font: inherit; }
   .site-header .dock { grid-column: 1 / -1; grid-row: 2; justify-self: stretch; max-width: none; }
   .hero { display: block; padding-top: 10rem; }.hero-orbit { width: min(80vw, 360px); margin-top: 6rem; }.orbit-label--side { display: none; }
   .section { width: min(100% - 2rem, 1180px); }.about-grid, .review-layout { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 3rem; }.experience-card { grid-template-columns: 1fr; gap: 1rem; }.experience-scan { right: 1rem; }
-  .contact-card { display: grid; }.section-title { margin-bottom: 1.8rem; }.dock-status { display: none; }footer { display: grid; gap: .5rem; padding-bottom: 5rem; }
+  .contact-card { display: grid; }.section-title { margin-bottom: 1.8rem; }footer { display: grid; gap: .5rem; padding-bottom: 5rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
