@@ -53,10 +53,8 @@ const copy = {
 function App() {
   const [language, setLanguage] = useState('fr');
   const [activeSection, setActiveSection] = useState('ecosystem');
-  const [search, setSearch] = useState('');
   const mainRef = useRef(null);
   const text = copy[language];
-  const searchItems = navigation.filter(([, label]) => label.toLowerCase().includes(search.toLowerCase()));
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -127,12 +125,6 @@ function App() {
           <span className="dock-status"><i /> LIVE / 2026</span>
           {navigation.map(([id, label]) => <a key={id} className={`dock-link ${activeSection === id ? 'is-active' : ''}`} href={`#${id}`}>{label}</a>)}
         </nav>
-        <div className="search-wrap">
-          <span className="search-icon" aria-hidden="true">⌕</span>
-          <input value={search} onChange={(event) => setSearch(event.target.value)} type="search" placeholder="Rechercher dans le portfolio..." aria-label="Rechercher dans le portfolio" />
-          <kbd>⌘ K</kbd>
-          {search && <div className="search-results">{searchItems.length ? searchItems.map(([id, label]) => <a key={id} href={`#${id}`} onClick={() => setSearch('')}>{label}<span>↗</span></a>) : <span className="search-empty">Aucun signal trouvé</span>}</div>}
-        </div>
         <div className="header-actions">
           <button className="language-toggle" type="button" onClick={() => setLanguage(language === 'fr' ? 'en' : 'fr')} aria-label="Changer de langue">
             <strong className={language === 'fr' ? 'is-selected' : ''}>FR</strong><i>/</i><strong className={language === 'en' ? 'is-selected' : ''}>EN</strong>
