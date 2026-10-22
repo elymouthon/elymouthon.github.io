@@ -144,19 +144,21 @@ function App() {
 
       const cursorDot = document.querySelector('.cursor-dot');
       const cursorRing = document.querySelector('.cursor-ring');
-      const moveDot = gsap.quickTo(cursorDot, 'x', { duration: 0.12, ease: 'power3.out' });
-      const moveDotY = gsap.quickTo(cursorDot, 'y', { duration: 0.12, ease: 'power3.out' });
-      const moveRing = gsap.quickTo(cursorRing, 'x', { duration: 0.35, ease: 'power3.out' });
-      const moveRingY = gsap.quickTo(cursorRing, 'y', { duration: 0.35, ease: 'power3.out' });
-      const handleCursorMove = (event) => {
-        moveDot(event.clientX);
-        moveDotY(event.clientY);
-        moveRing(event.clientX);
-        moveRingY(event.clientY);
-      };
+      if (cursorDot && cursorRing) {
+        const moveDot = gsap.quickTo(cursorDot, 'x', { duration: 0.12, ease: 'power3.out' });
+        const moveDotY = gsap.quickTo(cursorDot, 'y', { duration: 0.12, ease: 'power3.out' });
+        const moveRing = gsap.quickTo(cursorRing, 'x', { duration: 0.35, ease: 'power3.out' });
+        const moveRingY = gsap.quickTo(cursorRing, 'y', { duration: 0.35, ease: 'power3.out' });
+        const handleCursorMove = (event) => {
+          moveDot(event.clientX);
+          moveDotY(event.clientY);
+          moveRing(event.clientX);
+          moveRingY(event.clientY);
+        };
 
-      window.addEventListener('mousemove', handleCursorMove);
-      self.add(() => window.removeEventListener('mousemove', handleCursorMove));
+        window.addEventListener('mousemove', handleCursorMove);
+        self.add(() => window.removeEventListener('mousemove', handleCursorMove));
+      }
 
       navigation.forEach(([id]) => {
         ScrollTrigger.create({
