@@ -16,6 +16,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   overflow-x: hidden;
+  cursor: none;
   color: var(--text);
   background: var(--background);
   font-family: var(--font);
@@ -32,6 +33,7 @@ body::before {
   pointer-events: none;
 }
 a { color: inherit; text-decoration: none; }
+a, button { cursor: none; }
 button, input { color: inherit; font: inherit; }
 .site-shell { position: relative; min-height: 100vh; }
 .bg-canvas {
@@ -58,17 +60,22 @@ button, input { color: inherit; font: inherit; }
   mix-blend-mode: multiply;
   animation: noise-drift .35s steps(2) infinite;
 }
-.cursor-dot, .cursor-ring {
+.custom-cursor {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 250;
+  z-index: 9999;
+  width: 10px;
+  height: 10px;
+  background: var(--secondary);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
-.cursor-dot { width: 6px; height: 6px; background: var(--secondary); }
-.cursor-ring { width: 30px; height: 30px; border: 1px solid rgba(95, 140, 109, .7); }
+.custom-cursor.is-visible { opacity: 1; }
+.custom-cursor.is-hovering { background: rgba(95, 140, 109, .3); transform: translate(-50%, -50%) scale(3.5); }
 
 .site-header {
   position: fixed; z-index: 60; top: 0; left: 0; right: 0;
@@ -157,9 +164,11 @@ button, input { color: inherit; font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
   body { cursor: auto; }
-  .noise-overlay, .cursor-dot, .cursor-ring { display: none; }
+  .noise-overlay, .custom-cursor { display: none; }
+  a, button { cursor: auto; }
 }
 @media (hover: none), (pointer: coarse) {
   body { cursor: auto; }
-  .cursor-dot, .cursor-ring { display: none; }
+  .custom-cursor { display: none; }
+  a, button { cursor: auto; }
 }
