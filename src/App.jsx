@@ -54,7 +54,6 @@ function App() {
   const [language, setLanguage] = useState('fr');
   const [activeSection, setActiveSection] = useState('ecosystem');
   const mainRef = useRef(null);
-  const cursorRef = useRef(null);
   const text = copy[language];
 
   useLayoutEffect(() => {
@@ -157,17 +156,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const handleMouseMove = (event) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${event.clientX}px,${event.clientY}px, 0) translate(-50%, -50%)`;
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  useEffect(() => {
     const updateProgress = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       document.documentElement.style.setProperty('--scroll-progress', `${(window.scrollY / scrollable) * 100}%`);
@@ -197,7 +185,6 @@ function App() {
       <div className="canvas-layer" aria-hidden="true"><Canvas camera={{ position: [0, 2.8, 8], fov: 55 }} dpr={[1, 1.5]}><FoggyMountain /></Canvas></div>
       <div className="scroll-progress" aria-hidden="true" />
       <div className="noise-overlay" aria-hidden="true" />
-      <div ref={cursorRef} className="custom-cursor" aria-hidden="true" />
 
       <header className="site-header">
         <nav className="dock" aria-label="Navigation principale">
