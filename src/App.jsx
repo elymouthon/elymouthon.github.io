@@ -57,7 +57,7 @@ function App() {
   const text = copy[language];
 
   useLayoutEffect(() => {
-    const context = gsap.context(() => {
+    const context = gsap.context((self) => {
       gsap.from('.hero-reveal', {
         y: 42,
         autoAlpha: 0,
@@ -115,7 +115,7 @@ function App() {
 
         card.addEventListener('mousemove', handleMove);
         card.addEventListener('mouseleave', handleLeave);
-        context.add(() => {
+        self.add(() => {
           card.removeEventListener('mousemove', handleMove);
           card.removeEventListener('mouseleave', handleLeave);
         });
@@ -136,7 +136,7 @@ function App() {
 
         button.addEventListener('mousemove', handleMove);
         button.addEventListener('mouseleave', handleLeave);
-        context.add(() => {
+        self.add(() => {
           button.removeEventListener('mousemove', handleMove);
           button.removeEventListener('mouseleave', handleLeave);
         });
