@@ -64,10 +64,13 @@ function FoggyMountain() {
     const forceY = (0.5 - pointer.current.y) * 2;
     const journey = scrollProgress.current;
 
-    camera.position.x = Math.sin(time * 0.16) * 0.18 + forceX * 0.28;
-    camera.position.y = 2.8 + Math.sin(time * 0.22) * 0.08 + forceY * 0.18 + journey * 0.55;
-    camera.position.z = 8 + journey * 7;
-    camera.lookAt(0, 0.1, -journey * 2.8);
+    // The scroll travels across the terrain at a constant altitude. Mouse
+    // parallax remains additive, so reversing the scroll retraces the route.
+    const terrainOffset = journey * 6.5;
+    camera.position.x = Math.sin(time * 0.16) * 0.18 + forceX * 0.28 + terrainOffset;
+    camera.position.y = 2.8 + Math.sin(time * 0.22) * 0.08 + forceY * 0.18;
+    camera.position.z = 8;
+    camera.lookAt(terrainOffset, 0.1, 0);
 
     if (mountainRef.current) {
       const positions = mountainRef.current.geometry.attributes.position;
