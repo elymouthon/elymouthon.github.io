@@ -17,6 +17,8 @@ function FoggyMountain() {
   const mountainRef = useRef(null);
   const pointer = useRef({ x: 0.5, y: 0.5 });
   const pointerTarget = useRef({ x: 0.5, y: 0.5 });
+  const scrollProgress = useRef(0);
+  const scrollTarget = useRef(0);
   const geometry = useMemo(() => {
     const plane = new THREE.PlaneGeometry(22, 22, 110, 110);
     const positions = plane.attributes.position;
@@ -42,16 +44,30 @@ function FoggyMountain() {
     return () => window.removeEventListener('pointermove', updatePointer);
   }, []);
 
+  useEffect(() => {
+    const updateScroll = () => {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      scrollTarget.current = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+    };
+
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    updateScroll();
+    return () => window.removeEventListener('scroll', updateScroll);
+  }, []);
+
   useFrame(({ camera, clock }) => {
     const time = clock.getElapsedTime();
     pointer.current.x = THREE.MathUtils.lerp(pointer.current.x, pointerTarget.current.x, 0.045);
     pointer.current.y = THREE.MathUtils.lerp(pointer.current.y, pointerTarget.current.y, 0.045);
+    scrollProgress.current = THREE.MathUtils.lerp(scrollProgress.current, scrollTarget.current, 0.04);
     const forceX = (pointer.current.x - 0.5) * 2;
     const forceY = (0.5 - pointer.current.y) * 2;
+    const journey = scrollProgress.current;
 
     camera.position.x = Math.sin(time * 0.16) * 0.18 + forceX * 0.28;
-    camera.position.y = 2.8 + Math.sin(time * 0.22) * 0.08 + forceY * 0.18;
-    camera.lookAt(0, 0.1, 0);
+    camera.position.y = 2.8 + Math.sin(time * 0.22) * 0.08 + forceY * 0.18 + journey * 0.55;
+    camera.position.z = 8 + journey * 7;
+    camera.lookAt(0, 0.1, -journey * 2.8);
 
     if (mountainRef.current) {
       const positions = mountainRef.current.geometry.attributes.position;
