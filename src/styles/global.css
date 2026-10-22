@@ -4,9 +4,9 @@
   --text: #101D18;
   --secondary: #244B3A;
   --accent: #5F8C6D;
-  --line: rgba(95, 140, 109, .28);
+  --line: rgba(95, 140, 109, .38);
   --muted: rgba(16, 29, 24, .68);
-  --shadow: 0 10px 30px rgba(16, 29, 24, .05);
+  --shadow: 0 12px 32px rgba(95, 140, 109, .15);
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --scroll-progress: 0%;
 }
@@ -56,7 +56,7 @@ button, input { color: inherit; font: inherit; }
 }
 .brand { display: inline-flex; align-items: center; gap: .8rem; width: max-content; font-weight: 700; letter-spacing: -.03em; }
 .brand-mark { display: grid; width: 2.35rem; height: 2.35rem; place-items: center; color: var(--background); background: var(--secondary); border-radius: 50% 50% 50% 14%; font-size: .68rem; }
-.brand-name { color: var(--text); }
+.brand-name { color: var(--secondary); }
 .header-actions { display: flex; align-items: center; justify-content: flex-end; gap: .8rem; }
 .language-toggle { padding: .4rem .7rem; border: 1px solid var(--line); border-radius: 2rem; background: transparent; cursor: pointer; font-size: .68rem; transition: border-color .3s ease-in-out, color .3s ease-in-out; }
 .language-toggle:hover { border-color: var(--accent); color: var(--secondary); }
@@ -83,7 +83,7 @@ button, input { color: inherit; font: inherit; }
 .eyebrow { display: flex; align-items: center; gap: .65rem; }
 .status-dot, .hero-note-pulse { width: 7px; height: 7px; background: var(--accent); box-shadow: 0 0 0 5px rgba(95, 140, 109, .12); }
 .hero-kicker { margin: 2.8rem 0 .9rem; color: var(--accent); }
-.hero-title, .section-title { margin: .8rem 0; font-weight: 800; line-height: .9; letter-spacing: -.08em; }
+.hero-title, .section-title { margin: .8rem 0; color: var(--secondary); font-weight: 800; line-height: .9; letter-spacing: -.08em; }
 .hero-title { font-size: clamp(4.5rem, 11vw, 10rem); }
 .hero-title em { color: var(--secondary); font-style: normal; }
 .hero-lead { max-width: 29rem; margin: 2.4rem 0; color: var(--muted); font-size: 1.05rem; line-height: 1.8; }
@@ -108,7 +108,7 @@ button, input { color: inherit; font: inherit; }
 .about-grid, .review-layout { display: grid; grid-template-columns: 1fr .8fr; gap: 6rem; align-items: center; padding-top: 5rem; }
 .large-copy { max-width: 35rem; color: var(--text); font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.3; letter-spacing: -.03em; }
 .skill-card, .quote-card, .contact-card { padding: 1.8rem; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); transition: transform .3s ease-in-out, box-shadow .3s ease-in-out; }
-.skill-card:hover, .quote-card:hover, .contact-card:hover, .experience-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(16, 29, 24, .08); }
+.skill-card:hover, .quote-card:hover, .contact-card:hover, .experience-card:hover { transform: translateY(-4px); box-shadow: 0 16px 38px rgba(95, 140, 109, .18); }
 .skill-row { display: grid; grid-template-columns: 2rem 1fr auto; align-items: center; gap: .7rem; padding: 1.2rem 0; border-bottom: 1px solid var(--line); }
 .skill-row:last-child { border-bottom: 0; }.skill-row span { color: var(--accent); font-size: .65rem; }.skill-row strong { font-size: .85rem; }.skill-row i { color: var(--secondary); font-style: normal; }
 .experience-card { position: relative; display: grid; grid-template-columns: 1fr 1fr auto; gap: 2.5rem; align-items: end; margin-top: 5rem; padding: 2.5rem; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); transition: transform .3s ease-in-out, box-shadow .3s ease-in-out; }
