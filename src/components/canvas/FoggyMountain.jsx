@@ -92,17 +92,17 @@ function FoggyMountain() {
 
   return (
     <>
-      <color attach="background" args={['#17151b']} />
-      <fog attach="fog" args={['#17151b', 5, 15]} />
-      <ambientLight intensity={0.3} color="#ffb38a" />
-      <directionalLight position={[-4, 7, 3]} intensity={1.5} color="#b6a1ff" />
+      <color attach="background" args={['#F7F4EA']} />
+      <fog attach="fog" args={['#F7F4EA', 5, 15]} />
+      <ambientLight intensity={0.3} color="#DFE8D9" />
+      <directionalLight position={[-4, 7, 3]} intensity={1.5} color="#5F8C6D" />
       <mesh
         ref={mountainRef}
         geometry={geometry}
         rotation={[-Math.PI / 2.25, 0, 0]}
         position={[0, -1.25, -2.2]}
       >
-        <meshBasicMaterial color="#ff8a5b" wireframe transparent opacity={0.78} />
+        <meshBasicMaterial color="#244B3A" wireframe transparent opacity={0.78} />
       </mesh>
     </>
   );
