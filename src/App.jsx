@@ -61,18 +61,84 @@ function App() {
       gsap.from('.hero-reveal', {
         y: 42,
         autoAlpha: 0,
+        filter: 'blur(10px)',
         duration: 1,
         stagger: 0.12,
         ease: 'power3.out',
       });
 
       gsap.utils.toArray('.reveal').forEach((element) => {
-        gsap.fromTo(element, { y: 28, autoAlpha: 0 }, {
+        gsap.fromTo(element, { y: 40, autoAlpha: 0, filter: 'blur(10px)' }, {
           y: 0,
           autoAlpha: 1,
+          filter: 'blur(0px)',
           duration: 0.8,
           ease: 'power3.out',
           scrollTrigger: { trigger: element, start: 'top 84%', once: true },
+        });
+      });
+
+      gsap.fromTo('.skill-row',
+        { y: 24, autoAlpha: 0, filter: 'blur(6px)' },
+        {
+          y: 0,
+          autoAlpha: 1,
+          filter: 'blur(0px)',
+          duration: 0.7,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: '.skill-card', start: 'top 84%', once: true },
+        },
+      );
+
+      gsap.utils.toArray('.project-card').forEach((card) => {
+        const rotateX = gsap.quickTo(card, 'rotationX', { duration: 0.45, ease: 'power3.out' });
+        const rotateY = gsap.quickTo(card, 'rotationY', { duration: 0.45, ease: 'power3.out' });
+        const moveX = gsap.quickTo(card, 'x', { duration: 0.45, ease: 'power3.out' });
+        const moveY = gsap.quickTo(card, 'y', { duration: 0.45, ease: 'power3.out' });
+
+        const handleMove = (event) => {
+          const bounds = card.getBoundingClientRect();
+          const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+          const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+          rotateX(y * -4);
+          rotateY(x * 4);
+          moveX(x * 5);
+          moveY(y * 5 - 4);
+        };
+        const handleLeave = () => {
+          rotateX(0);
+          rotateY(0);
+          moveX(0);
+          moveY(0);
+        };
+
+        card.addEventListener('mousemove', handleMove);
+        card.addEventListener('mouseleave', handleLeave);
+        context.add(() => {
+          card.removeEventListener('mousemove', handleMove);
+          card.removeEventListener('mouseleave', handleLeave);
+        });
+      });
+
+      gsap.utils.toArray('.button').forEach((button) => {
+        const moveX = gsap.quickTo(button, 'x', { duration: 0.35, ease: 'power3.out' });
+        const moveY = gsap.quickTo(button, 'y', { duration: 0.35, ease: 'power3.out' });
+        const handleMove = (event) => {
+          const bounds = button.getBoundingClientRect();
+          moveX(((event.clientX - bounds.left) / bounds.width - 0.5) * 6);
+          moveY(((event.clientY - bounds.top) / bounds.height - 0.5) * 5);
+        };
+        const handleLeave = () => {
+          moveX(0);
+          moveY(0);
+        };
+
+        button.addEventListener('mousemove', handleMove);
+        button.addEventListener('mouseleave', handleLeave);
+        context.add(() => {
+          button.removeEventListener('mousemove', handleMove);
+          button.removeEventListener('mouseleave', handleLeave);
         });
       });
 
@@ -118,6 +184,7 @@ function App() {
       </div>
       <div className="canvas-layer" aria-hidden="true"><Canvas camera={{ position: [0, 2.8, 8], fov: 55 }} dpr={[1, 1.5]}><FoggyMountain /></Canvas></div>
       <div className="scroll-progress" aria-hidden="true" />
+      <div className="noise-overlay" aria-hidden="true" />
 
       <header className="site-header">
         <nav className="dock" aria-label="Navigation principale">
