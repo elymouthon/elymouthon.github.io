@@ -85,39 +85,6 @@ function Preloader({ onComplete }) {
   );
 }
 
-function CustomCursor() {
-  const cursorRef = useRef(null);
-
-  useEffect(() => {
-    if (window.matchMedia('(pointer: coarse)').matches) return undefined;
-    const cursor = cursorRef.current;
-    const xTo = gsap.quickTo(cursor, 'x', { duration: 0.15, ease: 'power3' });
-    const yTo = gsap.quickTo(cursor, 'y', { duration: 0.15, ease: 'power3' });
-    const move = ({ clientX, clientY }) => {
-      xTo(clientX);
-      yTo(clientY);
-    };
-    const enter = () => document.body.classList.add('cursor-is-active');
-    const leave = () => document.body.classList.remove('cursor-is-active');
-    window.addEventListener('pointermove', move, { passive: true });
-    document.querySelectorAll('a, button, [data-cursor]').forEach((element) => {
-      element.addEventListener('pointerenter', enter);
-      element.addEventListener('pointerleave', leave);
-    });
-    return () => {
-      window.removeEventListener('pointermove', move);
-      document.querySelectorAll('a, button, [data-cursor]').forEach((element) => {
-        element.removeEventListener('pointerenter', enter);
-        element.removeEventListener('pointerleave', leave);
-      });
-    };
-  }, []);
-
-  return (
-    <span ref={cursorRef} className="cursor cursor--dot" aria-hidden="true" />
-  );
-}
-
 function App() {
   const mainRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -186,7 +153,6 @@ function App() {
   return (
     <>
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
-      <CustomCursor />
       <div ref={mainRef} className="site-shell">
         <header className="site-header">
           <a className="brand" href="#home" data-cursor>
@@ -212,12 +178,12 @@ function App() {
             <div className="hero__layout">
               <div className="hero__content">
                 <p className="hero__eyebrow">Étudiant en BUT 3 Sciences des Données <span>↳</span></p>
-                <h1 className="hero__title" data-text-hover>
+                <h1 className="hero__title">
                   <span className="hero__title-line">Nature is</span>
                   <span className="hero__title-line hero__title-line--indent">the ultimate</span>
                   <span className="hero__title-line">algorithm.</span>
                 </h1>
-                <p className="hero__intro" data-text-hover>Je transforme des données brutes en outils lisibles, utiles et capables d&apos;aider les équipes à prendre de meilleures décisions.</p>
+                <p className="hero__intro">Je transforme des données brutes en outils lisibles, utiles et capables d&apos;aider les équipes à prendre de meilleures décisions.</p>
                 <div className="hero__meta">
                   <span>Scroll to explore</span>
                   <span className="hero__arrow">↓</span>
@@ -233,9 +199,9 @@ function App() {
 
           <section id="about" className="about section">
             <div className="section-label reveal"><span>[02]</span><span>About / Le concept</span><span>↘</span></div>
-            <div className="about__statement reveal" data-text-hover>[ chaos <em>→</em> clarity ]</div>
+            <div className="about__statement reveal">[ chaos <em>→</em> clarity ]</div>
             <div className="about__grid">
-              <p className="about__copy reveal" data-text-hover>Je m&apos;intéresse à ce qui se passe entre la donnée brute et la décision. Mon travail mélange programmation, statistiques et curiosité de terrain.</p>
+              <p className="about__copy reveal">Je m&apos;intéresse à ce qui se passe entre la donnée brute et la décision. Mon travail mélange programmation, statistiques et curiosité de terrain.</p>
               <div className="skills reveal">
                 <div className="skills__head"><span>Core practice</span><span>04 items</span></div>
                 {['Python', 'SQL', 'Machine Learning', 'Data Viz'].map((skill, index) => (
@@ -250,8 +216,8 @@ function App() {
           <section id="work" className="work section">
             <div className="section-label reveal"><span>[03]</span><span>Selected work / Projets</span><span>↘</span></div>
             <div className="work__intro reveal">
-              <h2 data-text-hover>Des systèmes<br /><em>qui font sens.</em></h2>
-              <p data-text-hover>Chaque projet commence par une question précise. La réponse prend ensuite la forme d&apos;un modèle, d&apos;une carte ou d&apos;un outil que l&apos;on a envie d&apos;utiliser.</p>
+              <h2>Des systèmes<br /><em>qui font sens.</em></h2>
+              <p>Chaque projet commence par une question précise. La réponse prend ensuite la forme d&apos;un modèle, d&apos;une carte ou d&apos;un outil que l&apos;on a envie d&apos;utiliser.</p>
             </div>
             <div className="project-grid">
               {projects.map((project) => (
@@ -259,7 +225,7 @@ function App() {
                   <div className="project-image"><img src={project.image} alt={project.alt} loading="lazy" /></div>
                   <div className="project-card__info">
                     <span>[{project.number}]</span><span>{project.type}</span>
-                    <h3 data-text-hover>{project.title}</h3><i>↗</i>
+                    <h3>{project.title}</h3><i>↗</i>
                   </div>
                 </article>
               ))}
@@ -269,7 +235,7 @@ function App() {
           <section id="contact" className="contact section">
             <div className="section-label reveal"><span>[04]</span><span>Contact / Let&apos;s talk</span><span>↘</span></div>
             <div className="contact__body">
-              <h2 className="reveal" data-text-hover>Let&apos;s build <em>↪</em><br />something meaningful.</h2>
+              <h2 className="reveal">Let&apos;s build <em>↪</em><br />something meaningful.</h2>
               <a className="contact__mail reveal" href="mailto:hello@elymouthon.fr" data-cursor>hello@elymouthon.fr <span>↗</span></a>
             </div>
             <footer><span>© 2026 Ely Mouthon</span><span>Built with curiosity / France</span><a href="#home" data-cursor>Back to top ↑</a></footer>
