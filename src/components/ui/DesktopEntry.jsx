@@ -62,16 +62,16 @@ function DesktopEntry({ onEnter }) {
         <section className="finder-window__content" aria-label="Répertoire de projets data">
           <div className="finder-window__path">[ HOME ] / ELY_MOUTHON / DATA</div>
           <div className="finder-grid">
-            {finderItems.map((item) => <FinderItem key={item.name} {...item} />)}
             <button className="finder-item finder-item--portfolio" type="button" onClick={handleEnter}>
               <FolderIcon active />
-              <span>Portfolio.exe</span>
+              <span>Portfolio</span>
               <small>Cliquez pour ouvrir</small>
             </button>
+            {finderItems.map((item) => <FinderItem key={item.name} {...item} />)}
           </div>
         </section>
       </div>
-      <p className="desktop-entry__hint">Sélectionnez Portfolio.exe pour entrer dans l&apos;expérience</p>
+      <p className="desktop-entry__hint">Sélectionnez Portfolio pour entrer dans l&apos;expérience</p>
     </main>
   );
 }
