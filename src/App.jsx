@@ -54,8 +54,6 @@ function Preloader({ onComplete }) {
 
   return (
     <div ref={loaderRef} className="preloader" aria-label="Chargement de l'expérience">
-      <div className="preloader__top"><span>[00]</span><span>EM / DATA OS</span></div>
-      <div className="preloader__message"><p>Booting Ely OS...</p><strong>{String(progress).padStart(3, '0')}%</strong></div>
       <div className="preloader__line"><span style={{ transform: `scaleX(${progress / 100})` }} /></div>
     </div>
   );
@@ -129,11 +127,10 @@ function Portfolio() {
     <div ref={shellRef} className="site-shell site-shell--entered os-shell">
       <div className="aurora" aria-hidden="true"><i /><i /><i /></div>
       <header className="os-menubar">
-        <a className="os-brand" href="#home"><span>EM</span><strong>Ely OS</strong></a>
+        
         <nav aria-label="Navigation principale">
-          <a href="#about">Mycélium</a><a href="#work">Projets</a><a href="#contact">Contact</a>
+          <a href="#about">À propos</a><a href="#work">Projets</a><a href="#contact">Contact</a>
         </nav>
-        <div className="os-system-status"><i /> SYSTEM ONLINE <span>10:26</span></div>
       </header>
 
       <main className="os-main">
