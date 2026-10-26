@@ -54,6 +54,7 @@ function Preloader({ onComplete }) {
 
   return (
     <div ref={loaderRef} className="preloader" aria-label="Chargement de l'expérience">
+      <div className="preloader__message"><strong>{String(progress).padStart(3, '0')}%</strong></div>
       <div className="preloader__line"><span style={{ transform: `scaleX(${progress / 100})` }} /></div>
     </div>
   );
