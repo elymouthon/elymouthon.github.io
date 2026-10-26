@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
 import './styles/global.css';
+import DesktopEntry from './components/ui/DesktopEntry';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,6 +88,7 @@ function Preloader({ onComplete }) {
 
 function App() {
   const mainRef = useRef(null);
+  const [hasEntered, setHasEntered] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -152,8 +154,10 @@ function App() {
 
   return (
     <>
-      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
-      <div ref={mainRef} className="site-shell">
+      {!hasEntered && <DesktopEntry onEnter={() => setHasEntered(true)} />}
+      {hasEntered && isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+      {hasEntered && (
+        <div ref={mainRef} className="site-shell site-shell--entered">
         <header className="site-header">
           <a className="brand" href="#home" data-cursor>
             <span className="brand__mark">EM</span>
@@ -241,7 +245,8 @@ function App() {
             <footer><span>© 2026 Ely Mouthon</span><span>Built with curiosity / France</span><a href="#home" data-cursor>Back to top ↑</a></footer>
           </section>
         </main>
-      </div>
+        </div>
+      )}
     </>
   );
 }
