@@ -109,6 +109,7 @@ function ProjectItem({ project }) {
 
 function Portfolio() {
   const shellRef = useRef(null);
+  const mouseGlowRef = useRef(null);
 
   useEffect(() => {
     const lenis = new Lenis({ duration: 1.15, smoothWheel: true, syncTouch: false });
@@ -124,9 +125,40 @@ function Portfolio() {
     return () => { cancelAnimationFrame(frame); lenis.destroy(); observer.disconnect(); };
   }, []);
 
+  useEffect(() => {
+    const glow = mouseGlowRef.current;
+    if (!glow || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+
+    let frame = 0;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let nextX = mouseX;
+    let nextY = mouseY;
+
+    const renderGlow = () => {
+      mouseX += (nextX - mouseX) * .16;
+      mouseY += (nextY - mouseY) * .16;
+      glow.style.setProperty('--mouse-x', `${mouseX}px`);
+      glow.style.setProperty('--mouse-y', `${mouseY}px`);
+      frame = requestAnimationFrame(renderGlow);
+    };
+    const handleMouseMove = (event) => {
+      nextX = event.clientX;
+      nextY = event.clientY;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    frame = requestAnimationFrame(renderGlow);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
     <div ref={shellRef} className="site-shell site-shell--entered os-shell">
       <div className="aurora" aria-hidden="true"><i /><i /><i /></div>
+      <div ref={mouseGlowRef} className="mouse-glow" aria-hidden="true" />
       <header className="os-menubar">
         
         <nav aria-label="Navigation principale">
@@ -154,7 +186,7 @@ function Portfolio() {
         </section>
 
         <section id="about" className="os-window os-window--about os-reveal">
-          <WindowBar title="Le_Mycélium" meta="ABOUT / 02" />
+          <WindowBar title="A propos" meta="ABOUT / 02" />
           <div className="about-window__body">
             <AvatarPlaceholder />
             <div className="about-window__copy"><p className="os-kicker">[ ABOUT / L’ÉCOSYSTÈME ]</p><h2>Entre la donnée<br /><em>et la décision.</em></h2><p>Je m’intéresse à ce qui se passe entre la donnée brute et la décision. Mon travail mélange programmation, statistiques et curiosité de terrain.</p></div>
