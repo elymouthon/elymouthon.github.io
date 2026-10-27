@@ -72,14 +72,10 @@ function WindowBar({ title, meta }) {
   );
 }
 
-function AvatarPlaceholder() {
+function ProfilePhoto() {
   return (
-    <div className="avatar-placeholder" aria-label="Emplacement photo de profil">
-      <svg viewBox="0 0 80 80" aria-hidden="true">
-        <circle cx="40" cy="29" r="13" />
-        <path d="M16 68c2-13 11-21 24-21s22 8 24 21" />
-      </svg>
-      <span>PHOTO / À VENIR</span>
+    <div className="avatar-placeholder">
+      <img src="/picture.jpg" alt="Portrait d'Ely Mouthon" />
     </div>
   );
 }
@@ -197,7 +193,7 @@ function Portfolio() {
         <section id="about" className="os-window os-window--about os-reveal">
           <WindowBar title="A propos" meta="ABOUT / 02" />
           <div className="about-window__body">
-            <AvatarPlaceholder />
+            <ProfilePhoto />
             <div className="about-window__copy"><p className="os-kicker">[ ABOUT / L’ÉCOSYSTÈME ]</p><h2>Entre la donnée<br /><em>et la décision.</em></h2><p>Je m’intéresse à ce qui se passe entre la donnée brute et la décision. Mon travail mélange programmation, statistiques et curiosité de terrain.</p></div>
             <div className="about-window__stats"><div><strong>03</strong><span>années à observer</span></div><div><strong>04</strong><span>outils maîtrisés</span></div><div><strong>∞</strong><span>questions à explorer</span></div></div>
           </div>
