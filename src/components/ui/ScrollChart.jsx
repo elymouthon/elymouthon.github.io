@@ -65,7 +65,7 @@ function ScrollChart() {
         scrollTrigger: {
           trigger: wrapper,
           start: 'center center',
-          end: '+=3800',
+          end: '+=3000',
           pin: wrapper,
           pinSpacing: true,
           scrub: 1,
@@ -167,7 +167,7 @@ function ScrollChart() {
               MAX_VALUE / INSIGHT_REACHED
             </text>
             </svg>
-            <div className="data-chart__legend"><span><i />signal détecté</span><span>SCROLL / 3800 PX</span></div>
+            <div className="data-chart__legend"><span><i />signal détecté</span><span>SCROLL / 3000 PX</span></div>
           </div>
         </div>
       </section>
