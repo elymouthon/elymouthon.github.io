@@ -16,6 +16,7 @@ const linePath = 'M 92 272 C 155 262, 214 245, 278 232 S 402 205, 464 190 S 598 
 const areaPath = `${linePath} L 836 310 L 92 310 Z`;
 
 function ScrollChart() {
+  const wrapperRef = useRef(null);
   const sectionRef = useRef(null);
   const lineRef = useRef(null);
   const fillRef = useRef(null);
@@ -23,10 +24,11 @@ function ScrollChart() {
   const labelsRef = useRef([]);
 
   useLayoutEffect(() => {
+    const wrapper = wrapperRef.current;
     const section = sectionRef.current;
     const line = lineRef.current;
     const fill = fillRef.current;
-    if (!section || !line || !fill) return undefined;
+    if (!wrapper || !section || !line || !fill) return undefined;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const lineLength = line.getTotalLength();
@@ -44,12 +46,14 @@ function ScrollChart() {
     const context = gsap.context(() => {
       const timeline = gsap.timeline({
         scrollTrigger: {
-          trigger: section,
+          trigger: wrapper,
           start: 'center center',
           end: '+=1500',
-          pin: true,
+          pin: wrapper,
+          pinSpacing: true,
           scrub: 1,
           anticipatePin: 1,
+          fastScrollEnd: true,
           invalidateOnRefresh: true,
         },
       });
@@ -65,22 +69,23 @@ function ScrollChart() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="impact" className="os-window os-window--data os-reveal" aria-labelledby="data-window-title">
-      <div className="os-window__bar">
-        <div className="os-window__lights" aria-hidden="true"><i /><i /><i /></div>
-        <strong id="data-window-title">[02] Data_Visualisation.exe</strong>
-        <span>IMPACT / 02</span>
-      </div>
-      <div className="data-window__body">
-        <div className="data-window__intro">
-          <div>
-            <p className="os-kicker">[ FROM RAW TO USEFUL ]</p>
-            <h2>Donner du relief<br /><em>à la donnée.</em></h2>
-          </div>
-          <p>Chaque étape clarifie le signal jusqu&apos;à faire émerger une décision lisible.</p>
+    <div ref={wrapperRef} className="chart-pin-wrapper">
+      <section ref={sectionRef} id="impact" className="os-window os-window--data" aria-labelledby="data-window-title">
+        <div className="os-window__bar">
+          <div className="os-window__lights" aria-hidden="true"><i /><i /><i /></div>
+          <strong id="data-window-title">[02] Data_Visualisation.exe</strong>
+          <span>IMPACT / 02</span>
         </div>
-        <div className="data-chart">
-          <svg viewBox="0 0 920 360" role="img" aria-labelledby="chart-title chart-description">
+        <div className="data-window__body">
+          <div className="data-window__intro">
+            <div>
+              <p className="os-kicker">[ FROM RAW TO USEFUL ]</p>
+              <h2>Donner du relief<br /><em>à la donnée.</em></h2>
+            </div>
+            <p>Chaque étape clarifie le signal jusqu&apos;à faire émerger une décision lisible.</p>
+          </div>
+          <div className="data-chart">
+            <svg viewBox="0 0 920 360" role="img" aria-labelledby="chart-title chart-description">
             <title id="chart-title">Progression de la donnée vers un insight</title>
             <desc id="chart-description">Une courbe ascendante en cinq étapes : donnée brute, nettoyage, modélisation, insight et impact.</desc>
             <defs>
@@ -126,11 +131,12 @@ function ScrollChart() {
                 </text>
               ))}
             </g>
-          </svg>
-          <div className="data-chart__legend"><span><i />signal détecté</span><span>SCROLL / 1500 PX</span></div>
+            </svg>
+            <div className="data-chart__legend"><span><i />signal détecté</span><span>SCROLL / 1500 PX</span></div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 
