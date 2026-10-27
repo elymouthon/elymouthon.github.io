@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import Lenis from 'lenis';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import './styles/global.css';
 import DesktopEntry from './components/ui/DesktopEntry';
+import ScrollChart from './components/ui/ScrollChart';
 
 const projects = [
   {
@@ -113,6 +115,8 @@ function Portfolio() {
 
   useEffect(() => {
     const lenis = new Lenis({ duration: 1.15, smoothWheel: true, syncTouch: false });
+    const updateScrollTrigger = () => ScrollTrigger.update();
+    lenis.on('scroll', updateScrollTrigger);
     let frame;
     const raf = (time) => { lenis.raf(time); frame = requestAnimationFrame(raf); };
     frame = requestAnimationFrame(raf);
@@ -122,7 +126,12 @@ function Portfolio() {
       });
     }, { threshold: .12 });
     shellRef.current?.querySelectorAll('.os-reveal').forEach((element) => observer.observe(element));
-    return () => { cancelAnimationFrame(frame); lenis.destroy(); observer.disconnect(); };
+    return () => {
+      cancelAnimationFrame(frame);
+      lenis.off('scroll', updateScrollTrigger);
+      lenis.destroy();
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -162,7 +171,7 @@ function Portfolio() {
       <header className="os-menubar">
         
         <nav aria-label="Navigation principale">
-          <a href="#about">À propos</a><a href="#work">Projets</a><a href="#contact">Contact</a>
+          <a href="#about">À propos</a><a href="#impact">Impact</a><a href="#work">Projets</a><a href="#contact">Contact</a>
         </nav>
       </header>
 
@@ -194,6 +203,8 @@ function Portfolio() {
           </div>
           <div className="skill-dock">{['Python', 'SQL', 'Machine Learning', 'Data Viz'].map((skill, index) => <span key={skill}><i>0{index + 1}</i>{skill}</span>)}</div>
         </section>
+
+        <ScrollChart />
 
         <section id="work" className="os-window os-window--projects os-reveal">
           <WindowBar title="Projects" meta="WORK / 03" />
