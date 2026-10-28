@@ -175,8 +175,13 @@ function Portfolio() {
         <section id="home" className="os-home os-reveal">
           <div className="os-home__copy">
             <p className="os-kicker"><span className="status-dot" /> DATA PORTFOLIO / 2026</p>
-            <h1>Data,<br /><em>with meaning.</em></h1>
-            <p className="os-lead">Je transforme des données brutes en outils lisibles, utiles et capables d’aider les équipes à prendre de meilleures décisions.</p>
+            <h1>Ely Mouthon</h1>
+            <p className="os-lead">Je transforme le chaos des données brutes en clarté stratégique.</p>
+            <div className="os-meta-list" aria-label="Informations professionnelles">
+              <span>Étudiant en BUT 3 Sciences des Données — IUT de Niort.</span>
+              <span>Alternant Data Analyst à l'EPSM Sud Bretagne (CH Charcot).</span>
+              <span>Basé dans le Morbihan, Bretagne.</span>
+            </div>
             <a className="os-button" href="#work">Explorer les projets <span>↗</span></a>
           </div>
           <div className="os-home__widget">
@@ -194,8 +199,11 @@ function Portfolio() {
           <WindowBar title="A propos" meta="ABOUT / 02" />
           <div className="about-window__body">
             <ProfilePhoto />
-            <div className="about-window__copy"><p className="os-kicker">[ ABOUT / L’ÉCOSYSTÈME ]</p><h2>Entre la donnée<br /><em>et la décision.</em></h2><p>Je m’intéresse à ce qui se passe entre la donnée brute et la décision. Mon travail mélange programmation, statistiques et curiosité de terrain.</p></div>
-            <div className="about-window__stats"><div><strong>03</strong><span>années à observer</span></div><div><strong>04</strong><span>outils maîtrisés</span></div><div><strong>∞</strong><span>questions à explorer</span></div></div>
+            <div className="about-window__copy">
+              <p className="about-window__intro">Ely Mouthon 20 ans.</p>
+              <p className="about-window__text">Mon approche de la data dépasse la simple technique. Ce qui m’anime au quotidien, c’est de me rendre utile. Savoir que nos productions, nos analyses et nos modèles sont au cœur des décisions stratégiques et ont un impact réel sur le terrain.</p>
+              <p className="about-window__personal">Passionné de sport et de dépassement de soi. Running, trail, pas mal de trek aussi, et un peu de cinéma.</p>
+            </div>
           </div>
           <div className="skill-dock">{['Python', 'SQL', 'Machine Learning', 'Data Viz'].map((skill, index) => <span key={skill}><i>0{index + 1}</i>{skill}</span>)}</div>
         </section>
