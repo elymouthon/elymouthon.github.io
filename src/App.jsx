@@ -200,9 +200,9 @@ function Portfolio() {
           <div className="about-window__body">
             <ProfilePhoto />
             <div className="about-window__copy">
-              <p className="about-window__intro">Ely Mouthon 20 ans.</p>
-              <p className="about-window__text">Mon approche de la data dépasse la simple technique. Ce qui m’anime au quotidien, c’est de me rendre utile. Savoir que nos productions, nos analyses et nos modèles sont au cœur des décisions stratégiques et ont un impact réel sur le terrain.</p>
-              <p className="about-window__personal">Passionné de sport et de dépassement de soi. Running, trail, pas mal de trek aussi, et un peu de cinéma.</p>
+              <p className="about-window__intro">Ely Mouthon, 20 ans.</p>
+              <p className="about-window__text">Mon approche de la data dépasse la simple technique. Ce qui m’anime au quotidien, c’est d’être utile : savoir que nos analyses, nos modèles et nos productions contribuent à des décisions stratégiques et ont un impact concret sur le terrain.</p>
+              <p className="about-window__personal">Passionné de sport et de dépassement de soi : running, trail, trek, et très attaché au cinéma.</p>
             </div>
           </div>
           <div className="skill-dock">{['Python', 'SQL', 'Machine Learning', 'Data Viz'].map((skill, index) => <span key={skill}><i>0{index + 1}</i>{skill}</span>)}</div>
