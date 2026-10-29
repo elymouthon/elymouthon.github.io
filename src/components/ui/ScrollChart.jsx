@@ -31,6 +31,7 @@ function ScrollChart() {
   const labelsRef = useRef([]);
   const finalPointRef = useRef(null);
   const finalLabelRef = useRef(null);
+  const actionRef = useRef(null);
 
   useLayoutEffect(() => {
     const wrapper = wrapperRef.current;
@@ -57,6 +58,10 @@ function ScrollChart() {
         finalLabelRef.current.style.opacity = '1';
         finalLabelRef.current.style.transform = 'translateY(0)';
       }
+      if (actionRef.current) {
+        actionRef.current.style.opacity = '1';
+        actionRef.current.style.transform = 'translateY(0) scale(1)';
+      }
       return undefined;
     }
 
@@ -81,7 +86,8 @@ function ScrollChart() {
         .to(pointsRef.current, { opacity: 1, scale: 1, duration: 0.2, stagger: 0.08, ease: 'back.out(2)' }, '>-0.04')
         .to(labelsRef.current, { opacity: 1, y: 0, duration: 0.18, stagger: 0.08, ease: 'power2.out' }, '<0.04')
         .to(finalPointRef.current, { opacity: 1, scale: 1, duration: 0.16, ease: 'back.out(2)' }, '>-0.02')
-        .to(finalLabelRef.current, { opacity: 1, y: 0, duration: 0.16, ease: 'power2.out' }, '<0.04');
+        .to(finalLabelRef.current, { opacity: 1, y: 0, duration: 0.16, ease: 'power2.out' }, '<0.04')
+        .to(actionRef.current, { opacity: 1, y: 0, scale: 1, duration: 0.24, ease: 'back.out(1.7)' }, '>');
     }, section);
 
     return () => context.revert();
@@ -169,6 +175,7 @@ function ScrollChart() {
             </svg>
             <div className="data-chart__legend"><span><i />signal détecté</span><span>SCROLL / 3000 PX</span></div>
           </div>
+          <a ref={actionRef} className="bilan-action os-button" href="/bilan.pdf">Téléchargez Bilan <span>↗</span></a>
         </div>
       </section>
     </div>

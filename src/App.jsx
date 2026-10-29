@@ -218,7 +218,13 @@ function Portfolio() {
 
         <section id="contact" className="os-window os-window--contact os-reveal">
           <WindowBar title="[04] Contact" meta="CONTACT / 04" />
-          <div className="contact-window__body"><div><p className="os-kicker">[ OPEN CHANNEL ]</p><h2>Construisons<br /><em>quelque chose.</em></h2></div><a className="os-button os-button--large" href="mailto:hello@elymouthon.fr">hello@elymouthon.fr <span>↗</span></a></div>
+          <div className="contact-window__body">
+            <div><p className="os-kicker">[ OPEN CHANNEL ]</p><h2>Construisons<br /><em>quelque chose.</em></h2></div>
+            <div className="contact-actions">
+              <a className="os-button os-button--large" href="mailto:ely.mouthon@outlook.fr">ely.mouthon@outlook.fr <span>↗</span></a>
+              <a className="os-button os-button--large" href="https://www.linkedin.com/in/ely-mouthon-880505337" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
+            </div>
+          </div>
         </section>
       </main>
       <footer className="os-footer"><span>© 2026 ELY MOUTHON / DATA OS</span><span>BUILT WITH CURIOSITY / FRANCE</span><a href="#home">BACK TO TOP ↑</a></footer>
