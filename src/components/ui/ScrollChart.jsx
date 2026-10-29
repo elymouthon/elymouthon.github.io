@@ -58,10 +58,6 @@ function ScrollChart() {
         finalLabelRef.current.style.opacity = '1';
         finalLabelRef.current.style.transform = 'translateY(0)';
       }
-      if (actionRef.current) {
-        actionRef.current.style.opacity = '1';
-        actionRef.current.style.transform = 'translateY(0) scale(1)';
-      }
       return undefined;
     }
 
@@ -87,7 +83,7 @@ function ScrollChart() {
         .to(labelsRef.current, { opacity: 1, y: 0, duration: 0.18, stagger: 0.08, ease: 'power2.out' }, '<0.04')
         .to(finalPointRef.current, { opacity: 1, scale: 1, duration: 0.16, ease: 'back.out(2)' }, '>-0.02')
         .to(finalLabelRef.current, { opacity: 1, y: 0, duration: 0.16, ease: 'power2.out' }, '<0.04')
-        .to(actionRef.current, { opacity: 1, y: 0, scale: 1, duration: 0.24, ease: 'back.out(1.7)' }, '>');
+        .to(actionRef.current, { backgroundColor: '#244B3A', color: '#F7F4EA', scale: 1.08, duration: 0.4, ease: 'power2.out' }, '>');
     }, section);
 
     return () => context.revert();
