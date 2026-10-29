@@ -89,11 +89,11 @@ function ScrollChart() {
 
   return (
     <div ref={wrapperRef} className="chart-pin-wrapper">
-      <section ref={sectionRef} id="impact" className="os-window os-window--data" aria-labelledby="data-window-title">
+      <section ref={sectionRef} id="bilan" className="os-window os-window--data" aria-labelledby="data-window-title">
         <div className="os-window__bar">
           <div className="os-window__lights" aria-hidden="true"><i /><i /><i /></div>
-          <strong id="data-window-title">[02] Data_Visualisation.exe</strong>
-          <span>IMPACT / 02</span>
+          <strong id="data-window-title">[03] Bilan</strong>
+          <span>BILAN / 03</span>
         </div>
         <div className="data-window__body">
           <div className="data-window__intro">

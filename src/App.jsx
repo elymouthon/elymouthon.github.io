@@ -167,7 +167,7 @@ function Portfolio() {
       <header className="os-menubar">
         
         <nav aria-label="Navigation principale">
-          <a href="#about">À propos</a><a href="#impact">Impact</a><a href="#work">Projets</a><a href="#contact">Contact</a>
+          <a href="#about">À propos</a><a href="#work">Projets</a><a href="#bilan">Bilan</a><a href="#contact">Contact</a>
         </nav>
       </header>
 
@@ -196,7 +196,7 @@ function Portfolio() {
         </section>
 
         <section id="about" className="os-window os-window--about os-reveal">
-          <WindowBar title="A propos" meta="ABOUT / 02" />
+          <WindowBar title="[01] À propos" meta="ABOUT / 01" />
           <div className="about-window__body">
             <ProfilePhoto />
             <div className="about-window__copy">
@@ -208,16 +208,16 @@ function Portfolio() {
           <div className="skill-dock">{['Python', 'SQL', 'Machine Learning', 'Data Viz'].map((skill, index) => <span key={skill}><i>0{index + 1}</i>{skill}</span>)}</div>
         </section>
 
-        <ScrollChart />
-
         <section id="work" className="os-window os-window--projects os-reveal">
-          <WindowBar title="Projects" meta="WORK / 03" />
+          <WindowBar title="[02] Projets" meta="WORK / 02" />
           <div className="projects-window__intro"><div><p className="os-kicker">[ SELECTED FILES ]</p><h2>Des systèmes<br /><em>qui font sens.</em></h2></div><p>Chaque projet commence par une question précise. Ouvrez un fichier pour afficher son aperçu.</p></div>
           <div className="project-grid">{projects.map((project) => <ProjectItem key={project.number} project={project} />)}</div>
         </section>
 
+        <ScrollChart />
+
         <section id="contact" className="os-window os-window--contact os-reveal">
-          <WindowBar title="Contact.app" meta="CONTACT / 04" />
+          <WindowBar title="[04] Contact" meta="CONTACT / 04" />
           <div className="contact-window__body"><div><p className="os-kicker">[ OPEN CHANNEL ]</p><h2>Construisons<br /><em>quelque chose.</em></h2></div><a className="os-button os-button--large" href="mailto:hello@elymouthon.fr">hello@elymouthon.fr <span>↗</span></a></div>
         </section>
       </main>
